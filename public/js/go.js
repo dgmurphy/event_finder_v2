@@ -629,17 +629,11 @@ function ethnicityChart(ethnicities) {
     console.log("Top Three Ethnicities: " + JSON.stringify(topEths));
     console.log("Other Ethnicities: " + otherEths.count);
 
-    $("#ethCount").html(ethnicities.length);
     $("#ethsTable").html("");
 
-    // Header row
-    var tableHeader = "<tr>" +
-                            "<td><u>Code</u></td>" +
-                            "<td><u>Count</u></td>" +
-                            "<td><u>Color</u></td>" +
-                        "</tr>";
+    tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Ethnicities</strong></td></tr>";
+    tableHtml += "<tr><td><table id='ethDetails'>";
 
-    $("#ethsTable").append(tableHeader);
 
     for(i = 0; i < topEths.length; i++) {
 
@@ -647,24 +641,74 @@ function ethnicityChart(ethnicities) {
 
         var color = getColorForCode(eth.name, i);
 
-        var trow = "<tr>";
-        trow += "<td class='ethcol1'>" + eth.name + "</td>";
-        trow += "<td>" + eth.count + "</td>";
-        trow += "<td>";
-        trow += "<div class='colorbox' style='background-color:" + color + "'></div>"
-        trow += "</td>";
-        trow += "</tr>";
+        tableHtml += "<tr>";
+        tableHtml += "<td>";
+        tableHtml += "<div class='colorbox' style='background-color:" + color + "'></div>"
+        tableHtml += "</td>";
+        tableHtml += "<td class='ethcol1'>" + eth.name + "</td>";
+        tableHtml += "<td>" + eth.count + "</td>";
+        tableHtml += "</tr>";
 
-        $("#ethsTable tr:last").after(trow);
     };   
 
-    var lastRow = "<tr><td class='ethcol1'> other</td>";
-    lastRow += "<td>" + otherEths.count + "</td>";
-    lastRow += "<td>";
-    lastRow += "<div class='colorbox' style='background-color: grey'></div>";
-    lastRow += "</td>";
-    $("#ethsTable tr:last").after(lastRow);
+    tableHtml += "<tr>";
+    tableHtml += "<td><div class='colorbox' style='background-color: "
+    tableHtml +=  getColorForCode(null, 3) + "'></div></td>";
+    tableHtml += "<td class='ethcol1'> other</td>";
+    tableHtml += "<td>" + otherEths.count + "</td>";
+    tableHtml += "</tr></table>";
+    //$("#ethsTable tr:last").after(lastRow);
 
+    tableHtml += "</td><td><div id='ethPie'> </div></td></tr></table>";
+    $("#ethsTable").append(tableHtml);
+
+    makeEthPie(topEths, otherEths);
+}
+
+function makeEthPie(top, other) {
+
+
+    var data = [];
+    top.forEach(function(e) {
+        data.push(e.count);
+    });
+    data.push(other.count);
+
+
+    var width = 90,
+        height = 90,
+        radius = Math.min(width, height) / 2;
+
+    var color = function(index) {
+        return getColorForCode(null, index);
+    }
+
+    var arc = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+    var labelArc = d3.arc()
+        .outerRadius(radius - 40)
+        .innerRadius(radius - 40);
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function(d) { return d; });
+
+    var svg = d3.select("#ethPie").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+      .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.index); });
 
 }
 
@@ -684,12 +728,14 @@ function getColorForCode(code, pos) {
     var color = "rgb(" + red + "," + green + "," + blue + ")";
 */
     if (pos == 0)
-        color = "green";
+        color = "steelblue";
     else if (pos == 1)
-        color = "blue";
-    else 
-        color = "orange";
-    
+        color = "darkseagreen";
+    else if (pos == 2)
+        color = "powderblue";
+    else
+        color = "lightgrey";
+
     return color;
 }
 

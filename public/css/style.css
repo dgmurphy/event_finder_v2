@@ -661,12 +661,12 @@ tr .descriptioncode {
   width: 150px;
 }
 
-#ethsTable td {
-  text-align: center;
+#ethDetails {
+  width: 80px;
 }
 
-.ethcol1 {
-  /*padding-left: 5px;*/
+#ethsTable td {
+  text-align: center;
 }
 
 .colorbox {
@@ -675,3 +675,13 @@ tr .descriptioncode {
     display: inline-block;
     background-color: #ccc;
 }
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
