@@ -1,0 +1,25 @@
+{
+  "name": "gev-demo",
+  "version": "1.0.0",
+  "description": "Map visualization of GDELT event data.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GDELT",
+    "Leaflet",
+    "Big Query"
+  ],
+  "author": "Doug Murphy",
+  "license": " ",
+  "dependencies": {
+    "@google-cloud/bigquery": "^0.3.0",
+    "async": "^2.1.2",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "google-cloud": "^0.41.2",
+    "pug": "^0.1.0"
+  }
+}

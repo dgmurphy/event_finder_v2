@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>OE Event Finder - About</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<a href="./index.html"><div class="globe"><img alt="OE Event Finder Icon" src="css/globeglass.png"/></div></a>
+
+		<header class="header">
+			<div id="title" >
+				<h1>OE Event Finder</h1> 
+				<div id="tagline">
+					Browse event data based on the 'Operational Environment' (location and PMESII-PT)
+				</div>
+			</div>
+			<a href="./index.html"><div class="efnav">Home</div></a>
+		</header>
+
+		<div class="middle">
+
+			<div class="container">
+
+				<main class="helpContent">
+
+					<div id="crosswalkDiv" class="helpHeader">
+						<strong>PMESII-PT to GDELT Event Code Mapping</strong>
+					</div> 
+					<div id="cwdetails">This table shows how the GDELT events are currently scored based on PMESII-PT relevance.
+						<br><br></div>
+					<table id="cwtable">
+						<tr>
+							<th class="cwcode">CAMEO Event Code</th>
+							<th>Description</th>
+							<th class="cwscore">PMESII-PT Score [0-4]</th>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">01</td>
+							<td>MAKE PUBLIC STATEMENT</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">010</td>
+							<td>Make statement, not specified below</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">011</td>
+							<td>Decline comment</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">012</td>
+							<td>Make pessimistic comment</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">013</td>
+							<td>Make optimistic comment</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">014</td>
+							<td>Consider policy option</td>
+							<td class="cwscore">423341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">015</td>
+							<td>Acknowledge or claim responsibility</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">016</td>
+							<td>Deny responsibility</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">017</td>
+							<td>Engage in symbolic act</td>
+							<td class="cwscore">211441-03</td>
+						</tr>
+						<tr>
+							<td class="cwcode">018</td>
+							<td>Make empathetic comment</td>
+							<td class="cwscore">211441-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">019</td>
+							<td>Express accord</td>
+							<td class="21144101">211441-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">02</td>
+							<td>APPEAL</td>
+							<td class="cwscore">312331-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">020</td>
+							<td>Appeal, not specified below</td>
+							<td class="cwscore">312331-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">021</td>
+							<td>Appeal for material cooperation, not specified below</td>
+							<td class="cwscore">312433-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0211</td>
+							<td>Appeal for economic cooperation</td>
+							<td class="cwscore">314423-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0212</td>
+							<td>Appeal for military cooperation</td>
+							<td class="cwscore">342323-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0213</td>
+							<td>Appeal for judicial cooperation</td>
+							<td class="cwscore">312432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0214</td>
+							<td>Appeal for intelligence</td>
+							<td class="cwscore">341241-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">022</td>
+							<td>Appeal for diplomatic cooperation, such as policy support</td>
+							<td class="cwscore">411231-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">023</td>
+							<td>Appeal for aid, not specified below</td>
+							<td class="cwscore">214233-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0231</td>
+							<td>Appeal for economic aid</td>
+							<td class="cwscore">214212-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0232</td>
+							<td>Appeal for military aid</td>
+							<td class="cwscore">241111-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0233</td>
+							<td>Appeal for humanitarian aid</td>
+							<td class="cwscore">303412-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0234</td>
+							<td>Appeal for military protection or peacekeeping</td>
+							<td class="cwscore">242311-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">024</td>
+							<td>Appeal for political reform, not specified below</td>
+							<td class="cwscore">411111-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0241</td>
+							<td>Appeal for change in leadership</td>
+							<td class="cwscore">422222-12</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0242</td>
+							<td>Appeal for policy change</td>
+							<td class="cwscore">422222-12</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0243</td>
+							<td>Appeal for rights</td>
+							<td class="cwscore">421421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0244</td>
+							<td>Appeal for change in institutions, regime</td>
+							<td class="cwscore">432322-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">025</td>
+							<td>Appeal to yield</td>
+							<td class="cwscore">333331-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0251</td>
+							<td>Appeal for easing of administrative sanctions</td>
+							<td class="cwscore">423332-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0252</td>
+							<td>Appeal for easing of popular dissent</td>
+							<td class="cwscore">421431-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0253</td>
+							<td>Appeal for release of persons or property</td>
+							<td class="cwscore">431421-02</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0254</td>
+							<td>Appeal for easing of economic sanctions, boycott, or embargo</td>
+							<td class="cwscore">314222-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0255</td>
+							<td>Appeal for target to allow international involvement (non-mediation)</td>
+							<td class="cwscore">422221-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0256</td>
+							<td>Appeal for de-escalation of military engagement</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">026</td>
+							<td>Appeal to others to meet or negotiate</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">027</td>
+							<td>Appeal to others to settle dispute</td>
+							<td class="cwscore">332221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">028</td>
+							<td>Appeal to others to engage in or accept mediation</td>
+							<td class="cwscore">322321-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">03</td>
+							<td>EXPRESS INTENT TO COOPERATE</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">030</td>
+							<td>Express intent to engage in material cooperation,  not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">031</td>
+							<td>Express intent to engage in material cooperation,  not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0311</td>
+							<td>Express intent to cooperate economically</td>
+							<td class="cwscore">224121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0312</td>
+							<td>Express intent to cooperate militarily</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0313</td>
+							<td>Express intent to cooperate on judicial matters</td>
+							<td class="cwscore">211421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0314</td>
+							<td>Express intent to cooperate on intelligence</td>
+							<td class="cwscore">231241-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">032</td>
+							<td>Express intent to provide diplomatic cooperation such as policy support</td>
+							<td class="cwscore">422231-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">033</td>
+							<td>Express intent to provide material aid, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0331</td>
+							<td>Express intent to provide economic aid</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0332</td>
+							<td>Express intent to provide military aid</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0333</td>
+							<td>Express intent to provide humanitarian aid</td>
+							<td class="cwscore">214221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0334</td>
+							<td>Express intent to provide military protection or peacekeeping</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">034</td>
+							<td>Express intent to institute political reform, not specified below</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0341</td>
+							<td>Express intent to change leadership</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0342</td>
+							<td>Express intent to change policy</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0343</td>
+							<td>Express intent to provide rights</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0344</td>
+							<td>xpress intent to change institutions, regime</td>
+							<td class="cwscore">432221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">035</td>
+							<td>Express intent to yield, not specified below</td>
+							<td class="cwscore">332121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0351</td>
+							<td>Express intent to ease administrative sanctions</td>
+							<td class="cwscore">323221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0352</td>
+							<td>Express intent to ease popular dissent</td>
+							<td class="cwscore">422421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0353</td>
+							<td>Express intent to release persons or property</td>
+							<td class="cwscore">321421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0354</td>
+							<td>Express intent to ease economic sanctions, boycott, or embargo</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0355</td>
+							<td>Express intent allow international involvement (not mediation)</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0356</td>
+							<td>Express intent to de-escalate military engagement </td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">036</td>
+							<td>Express intent to meet or negotiate</td>
+							<td class="cwscore">321221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">037</td>
+							<td>Express intent to settle dispute</td>
+							<td class="cwscore">321221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">038</td>
+							<td>Express intent to accept mediation</td>
+							<td class="cwscore">321221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">039</td>
+							<td>Express intent to mediate</td>
+							<td class="cwscore">321221-01</td>
+						</tr>
+						<tr  class="tbreak">
+							<td class="cwcode">04</td>
+							<td>CONSULT</td>
+							<td class="cwscore">211221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">040</td>
+							<td>Consult, not specified below</td>
+							<td class="cwscore">211221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">041</td>
+							<td>Discuss by telephone</td>
+							<td class="cwscore">211221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">042</td>
+							<td>Make a visit</td>
+							<td class="cwscore">211221-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">043</td>
+							<td>Host a visit</td>
+							<td class="cwscore">211221-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">044</td>
+							<td>Meet at a third location</td>
+							<td class="cwscore">211221-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">045</td>
+							<td>Mediate</td>
+							<td class="cwscore">211221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">046</td>
+							<td>Engage in negotiation</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr  class="tbreak">
+							<td class="cwcode">05</td>
+							<td>ENGAGE IN DIPLOMATIC COOPERATION</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">050</td>
+							<td>ngage in diplomatic cooperation, not specified below</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">051</td>
+							<td>Praise or endorse</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">052</td>
+							<td>Defend verbally</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">053</td>
+							<td>Rally support on behalf of</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">054</td>
+							<td>Grant diplomatic recognition</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">055</td>
+							<td>Apologize</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">056</td>
+							<td>Forgive</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">057</td>
+							<td>Sign formal agreement</td>
+							<td class="cwscore">411221-01</td>
+						</tr>
+						<tr  class="tbreak">
+							<td class="cwcode">06</td>
+							<td>ENGAGE IN MATERIAL COOPERATION</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">060</td>
+							<td>Engage in material cooperation, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">061</td>
+							<td>Cooperate economically</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">062</td>
+							<td>Cooperate militarily</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">063</td>
+							<td>Engage in judicial cooperation</td>
+							<td class="cwscore">222321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">064</td>
+							<td>Share intelligence or information</td>
+							<td class="cwscore">222241-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">07</td>
+							<td>Provide aid, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">070</td>
+							<td>Provide aid, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">071</td>
+							<td>Provide economic aid</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">072</td>
+							<td>Provide economic aid</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">073</td>
+							<td>Provide humanitarian aid</td>
+							<td class="cwscore">222421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">074</td>
+							<td>Provide military protection or peacekeeping</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">075</td>
+							<td>Grant asylum</td>
+							<td class="cwscore">412221-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">08</td>
+							<td>YIELD</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">080</td>
+							<td>Yield, not specified below </td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">081</td>
+							<td>Ease administrative sanctions, not specified below</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0811</td>
+							<td>Ease restrictions on political freedoms</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0812</td>
+							<td>Ease ban on political parties or politicians</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0813</td>
+							<td>Ease curfew</td>
+							<td class="cwscore">222321-04</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0814</td>
+							<td>Ease state of emergency or martial law</td>
+							<td class="cwscore">232221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">082</td>
+							<td>Ease political dissent </td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">083</td>
+							<td>Accede to requests or demands for political reform not specified below</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0831</td>
+							<td>Accede to demands for change in leadership</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0832</td>
+							<td>Accede to demands for change in policy</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0833</td>
+							<td>Accede to demands for rights</td>
+							<td class="cwscore">422421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0834</td>
+							<td>Accede to demands for change in institutions, regime</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">084</td>
+							<td>Return, release, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0841</td>
+							<td>Return, release person(s)</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0842</td>
+							<td>Return, release property</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">085</td>
+							<td>Ease economic sanctions, boycott, embargo</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">086</td>
+							<td>Allow international involvement not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0861</td>
+							<td>Receive deployment of peacekeepers</td>
+							<td class="cwscore">232221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0862</td>
+							<td>Receive inspectors</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0863</td>
+							<td>Allow delivery of humanitarian aid</td>
+							<td class="cwscore">224321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">087</td>
+							<td>De-escalate military engagement</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0871</td>
+							<td>Declare truce, ceasefire</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0872</td>
+							<td>Ease military blockade</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0873</td>
+							<td>Demobilize armed forces</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">0874</td>
+							<td>Retreat or surrender militarily</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">09</td>
+							<td>INVESTIGATE</td>
+							<td class="cwscore">211341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">090</td>
+							<td>Investigate, not specified below</td>
+							<td class="cwscore">211341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">091</td>
+							<td>Investigate crime, corruption</td>
+							<td class="cwscore">211341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">092</td>
+							<td>Investigate human rights abuses</td>
+							<td class="cwscore">211341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">093</td>
+							<td>Investigate military action</td>
+							<td class="cwscore">241341-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">094</td>
+							<td>Investigate war crimes</td>
+							<td class="cwscore">241341-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">10</td>
+							<td>DEMAND</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">100</td>
+							<td>Demand, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">101</td>
+							<td>Demand information, investigation</td>
+							<td class="cwscore">222241-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1011</td>
+							<td>Demand economic cooperation</td>
+							<td class="cwscore">223221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1012</td>
+							<td>Demand military cooperation</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1013</td>
+							<td>Demand judicial cooperation</td>
+							<td class="cwscore">222321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1014</td>
+							<td>Demand intelligence cooperation</td>
+							<td class="cwscore">222241-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">102</td>
+							<td>Demand policy support</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">103</td>
+							<td>Demand aid, protection, or peacekeeping</td>
+							<td class="cwscore">233221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1031</td>
+							<td>Demand economic aid</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1032</td>
+							<td>Demand military aid</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1033</td>
+							<td>Demand humanitarian aid</td>
+							<td class="cwscore">223321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1034</td>
+							<td>Demand military protection or peacekeeping</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">104</td>
+							<td>Demand political reform, not specified below</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1041</td>
+							<td>Demand change in leadership</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1042</td>
+							<td>Demand policy change</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1043</td>
+							<td>Demand rights</td>
+							<td class="cwscore">222421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1044</td>
+							<td>Demand change in institutions, regime</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">105</td>
+							<td>Demand mediation</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1051</td>
+							<td>Demand easing of administrative sanctions</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1052</td>
+							<td>Demand easing of political dissent</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1053</td>
+							<td>Demand release of persons or property</td>
+							<td class="cwscore">223321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1054</td>
+							<td>Demand easing of economic sanctions, boycott, or embargo</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1055</td>
+							<td>Demand that target allows international involvement (non-mediation)</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1056</td>
+							<td>Demand de-escalation of military engagement</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">106</td>
+							<td>Demand withdrawal</td>
+							<td class="cwscore">222221-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">107</td>
+							<td>Demand ceasefire</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">108</td>
+							<td>Demand meeting, negotiation</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">11</td>
+							<td>DISAPPROVE</td>
+							<td class="cwscore">210120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">110</td>
+							<td>Disapprove, not specified below</td>
+							<td class="cwscore">210120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">111</td>
+							<td>Criticize or denounce </td>
+							<td class="cwscore">210120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">112</td>
+							<td>Accuse, not specified below</td>
+							<td class="cwscore">210120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1121</td>
+							<td>Accuse of crime, corruption</td>
+							<td class="cwscore">210320-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1122</td>
+							<td>Accuse of human rights abuses</td>
+							<td class="cwscore">210320-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1123</td>
+							<td>Accuse of aggression</td>
+							<td class="cwscore">230120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1124</td>
+							<td>Accuse of war crimes</td>
+							<td class="cwscore">240120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1125</td>
+							<td>Accuse of espionage, treason</td>
+							<td class="cwscore">330320-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">113</td>
+							<td>Rally opposition against</td>
+							<td class="cwscore">310320-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">114</td>
+							<td>Complain officially </td>
+							<td class="cwscore">410220-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">115</td>
+							<td>Bring lawsuit against </td>
+							<td class="cwscore">100320-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">116</td>
+							<td>Find guilty or liable (legally)</td>
+							<td class="cwscore">100320-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">12</td>
+							<td>REJECT</td>
+							<td class="cwscore">211120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">120</td>
+							<td>Reject, not specified below</td>
+							<td class="cwscore">211120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">121</td>
+							<td>Reject material cooperation</td>
+							<td class="cwscore">211120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1211</td>
+							<td>Reject economic cooperation</td>
+							<td class="cwscore">214120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1212</td>
+							<td>Reject military cooperation</td>
+							<td class="cwscore">241120-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">122</td>
+							<td>Reject request or demand for material aid, not specified below</td>
+							<td class="cwscore">321121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1221</td>
+							<td>Reject request for economic aid</td>
+							<td class="cwscore">324121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1222</td>
+							<td>Reject request for military aid</td>
+							<td class="cwscore">341121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1223</td>
+							<td>Reject request for humanitarian aid</td>
+							<td class="cwscore">321421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1224</td>
+							<td>Reject request for military protection or peacekeeping</td>
+							<td class="cwscore">341121-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">123</td>
+							<td>Reject request or demand for political reform, not specified below</td>
+							<td class="cwscore">411321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1231</td>
+							<td>Reject request for change in leadership</td>
+							<td class="cwscore">411321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1232</td>
+							<td>Reject request for policy change</td>
+							<td class="cwscore">411321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1233</td>
+							<td>Reject request for rights</td>
+							<td class="cwscore">311421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1234</td>
+							<td>Reject request for change in institutions, regime</td>
+							<td class="cwscore">321421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">124</td>
+							<td>Refuse to yield, not specified below</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1241</td>
+							<td>Refuse to ease administrative sanctions</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1242</td>
+							<td>Refuse to ease popular dissent</td>
+							<td class="cwscore">322421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1243</td>
+							<td>Refuse to release persons or property</td>
+							<td class="cwscore">322421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1244</td>
+							<td>Refuse to ease economic sanctions, boycott, or embargo</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1245</td>
+							<td>Refuse to allow international involvement (non mediation)</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1246</td>
+							<td>Refuse to de-escalate military engagement</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">125</td>
+							<td>Reject proposal to meet, discuss, or negotiate</td>
+							<td class="cwscore">311211-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">126</td>
+							<td>Reject mediation</td>
+							<td class="cwscore">311211-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">127</td>
+							<td>Reject plan, agreement to settle dispute</td>
+							<td class="cwscore">311211-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">128</td>
+							<td>efy norms, law</td>
+							<td class="cwscore">211311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">129</td>
+							<td>Veto</td>
+							<td class="cwscore">411211-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">13</td>
+							<td>THREATEN</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">130</td>
+							<td>Threaten, not specified below</td>
+							<td class="cwscore">222221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">131</td>
+							<td>Threaten non-force, not specified below</td>
+							<td class="cwscore">212221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1311</td>
+							<td>Threaten to reduce or stop aid</td>
+							<td class="cwscore">224221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1312</td>
+							<td>Threaten to boycott, embargo, or sanction</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1313</td>
+							<td>Threaten to reduce or break relations</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">132</td>
+							<td>Threaten with administrative sanctions, not specified below</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1321</td>
+							<td>Threaten to impose restrictions on political freedoms </td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1322</td>
+							<td>Threaten to ban political parties or politicians</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1323</td>
+							<td>Threaten to impose curfew</td>
+							<td class="cwscore">222321-24</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1324</td>
+							<td>Threaten to impose state of emergency or martial law</td>
+							<td class="cwscore">232321-12</td>
+						</tr>
+						<tr>
+							<td class="cwcode">133</td>
+							<td>Threaten political dissent, protest</td>
+							<td class="cwscore">422321-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">134</td>
+							<td>Threaten to halt negotiations</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">135</td>
+							<td>Threaten to halt mediation</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">136</td>
+							<td>Threaten to halt international involvement (non-mediation)</td>
+							<td class="cwscore">322221-01</td>
+						</tr>						<tr>
+							<td class="cwcode">137</td>
+							<td>Threaten with violent repression</td>
+							<td class="cwscore">332221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">138</td>
+							<td>Threaten to use military force, not specified below</td>
+							<td class="cwscore">242221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1381</td>
+							<td>Threaten blockade</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1382</td>
+							<td>Threaten occupation </td>
+							<td class="cwscore">342221-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1383</td>
+							<td>hreaten unconventional violence</td>
+							<td class="cwscore">242421-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1384</td>
+							<td>Threaten conventional attack  </td>
+							<td class="cwscore">242221-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1385</td>
+							<td>Threaten attack with WMD</td>
+							<td class="cwscore">242221-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">139</td>
+							<td>Give ultimatum</td>
+							<td class="cwscore">232221-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">14</td>
+							<td>PROTEST</td>
+							<td class="cwscore">222332-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">140</td>
+							<td>Engage in political dissent, not specified below</td>
+							<td class="cwscore">422332-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">141</td>
+							<td>Demonstrate or rally</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1411</td>
+							<td>Demonstrate for leadership change</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1412</td>
+							<td>Demonstrate for policy change</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1413</td>
+							<td>Demonstrate for rights</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1414</td>
+							<td>Demonstrate for change in institutions, regime</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">142</td>
+							<td>Conduct hunger strike, not specified below</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1421</td>
+							<td>Conduct hunger strike for leadership change</td>
+							<td class="cwscore">422432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1422</td>
+							<td>Conduct hunger strike for policy change</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1423</td>
+							<td>Conduct hunger strike for rights</td>
+							<td class="cwscore">322432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1424</td>
+							<td>Conduct hunger strike for change in institutions, regime </td>
+							<td class="cwscore">422432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">143</td>
+							<td>Conduct strike or boycott, not specified below</td>
+							<td class="cwscore">323432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1431</td>
+							<td>Conduct strike or boycott for leadership change</td>
+							<td class="cwscore">423432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1432</td>
+							<td>Conduct strike or boycott for policy change</td>
+							<td class="cwscore">323432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1433</td>
+							<td>Conduct strike or boycott for rights</td>
+							<td class="cwscore">323432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1434</td>
+							<td>Conduct strike or boycott for change in institutions, regime</td>
+							<td class="cwscore">423432-11</td>
+						</tr>
+						<tr>
+							<td class="cwcode">144</td>
+							<td>Obstruct passage, block</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1441</td>
+							<td>Obstruct passage to demand leadership change </td>
+							<td class="cwscore">423432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1442</td>
+							<td>Obstruct passage to demand policy change</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1443</td>
+							<td>bstruct passage to demand rights</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1444</td>
+							<td>Obstruct passage to demand change in institutions, regime</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">145</td>
+							<td>Protest violently, riot</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1451</td>
+							<td>Engage in violent protest for leadership change </td>
+							<td class="cwscore">423432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1452</td>
+							<td>Engage in violent protest for policy change</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1453</td>
+							<td>Engage in violent protest for rights</td>
+							<td class="cwscore">323432-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1454</td>
+							<td>Engage in violent protest for  change in institutions, regime</td>
+							<td class="cwscore">423432-41</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">15</td>
+							<td>EXHIBIT FORCE POSTURE</td>
+							<td class="cwscore">242222-31</td>
+						</tr>
+						<tr>
+							<td class="cwcode">150</td>
+							<td>Demonstrate military or police power, not specified below</td>
+							<td class="cwscore">242222-31</td>
+						</tr>
+						<tr>
+							<td class="cwcode">151</td>
+							<td>Increase police alert status</td>
+							<td class="cwscore">242222-33</td>
+						</tr>
+						<tr>
+							<td class="cwcode">152</td>
+							<td>Increase military alert status</td>
+							<td class="cwscore">242222-33</td>
+						</tr>
+						<tr>
+							<td class="cwcode">153</td>
+							<td>Mobilize or increase police power</td>
+							<td class="cwscore">242222-31</td>
+						</tr>
+						<tr>
+							<td class="cwcode">154</td>
+							<td>Mobilize or increase armed forces </td>
+							<td class="cwscore">242222-31</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">16</td>
+							<td>REDUCE RELATIONS</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">160</td>
+							<td>Reduce relations, not specified below</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">161</td>
+							<td>Reduce or break diplomatic relations</td>
+							<td class="cwscore">422221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">162</td>
+							<td>Reduce or stop aid, not specified below</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1621</td>
+							<td>Reduce or stop economic assistance</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1622</td>
+							<td>Reduce or stop military assistance</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1623</td>
+							<td>Reduce or stop humanitarian assistance</td>
+							<td class="cwscore">322421-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">163</td>
+							<td>Impose embargo, boycott, or sanctions</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">164</td>
+							<td>Halt negotiations</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">165</td>
+							<td>Halt mediation</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">166</td>
+							<td>Expel or withdraw, not specified below</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1661</td>
+							<td>Expel or withdraw peacekeepers</td>
+							<td class="cwscore">342221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1662</td>
+							<td>Expel or withdraw inspectors, observers</td>
+							<td class="cwscore">322221-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1663</td>
+							<td>Expel or withdraw aid agencies</td>
+							<td class="cwscore">324221-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">17</td>
+							<td>COERCE</td>
+							<td class="cwscore">222222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">170</td>
+							<td>Coerce, not specified below </td>
+							<td class="cwscore">222222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">171</td>
+							<td>Seize or damage property, not specified below</td>
+							<td class="cwscore">222222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1711</td>
+							<td>Confiscate property</td>
+							<td class="cwscore">222222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1712</td>
+							<td>Destroy property</td>
+							<td class="cwscore">222222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">172</td>
+							<td>Impose administrative sanctions, not specified below</td>
+							<td class="cwscore">322222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1721</td>
+							<td>Impose restrictions on political freedoms  </td>
+							<td class="cwscore">422222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1722</td>
+							<td>Ban political parties or politicians</td>
+							<td class="cwscore">422222-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1723</td>
+							<td>Impose curfew</td>
+							<td class="cwscore">222222-44</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1724</td>
+							<td>Impose state of emergency or martial law</td>
+							<td class="cwscore">242222-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">173</td>
+							<td>Arrest, detain, or charge with legal action </td>
+							<td class="cwscore">232422-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">174</td>
+							<td>Expel or deport individuals</td>
+							<td class="cwscore">222322-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">175</td>
+							<td>Use tactics of violent repression </td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">18</td>
+							<td>ASSAULT</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">180</td>
+							<td>Use unconventional violence, not specified below</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">181</td>
+							<td>Abduct, hijack, or take hostage </td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">182</td>
+							<td>Physically assault, not specified below</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1821</td>
+							<td>Sexually assault</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1822</td>
+							<td>Torture</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1823</td>
+							<td>Kill by physical assault</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">183</td>
+							<td>Conduct suicide, car, or other non-military bombing, not spec below</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1831</td>
+							<td>Carry out suicide bombing</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1832</td>
+							<td>Carry out car bombing</td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">1833</td>
+							<td>Carry out roadside bombing </td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">184</td>
+							<td>Use as human shield </td>
+							<td class="cwscore">222311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">185</td>
+							<td>Attempt to assassinate</td>
+							<td class="cwscore">322311-01</td>
+						</tr>
+						<tr>
+							<td class="cwcode">186</td>
+							<td>Assassinate</td>
+							<td class="cwscore">322311-01</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">19</td>
+							<td>FIGHT</td>
+							<td class="cwscore">242211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">190</td>
+							<td>Use conventional military force, not specified below</td>
+							<td class="cwscore">242211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">191</td>
+							<td>Impose blockade, restrict movement </td>
+							<td class="cwscore">243211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">192</td>
+							<td>Occupy territory</td>
+							<td class="cwscore">242211-41</td>
+						</tr>
+						<tr>
+							<td class="cwcode">193</td>
+							<td>Fight with small arms and light weapons</td>
+							<td class="cwscore">242211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">194</td>
+							<td>Fight with artillery and tanks</td>
+							<td class="cwscore">242211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">195</td>
+							<td>Employ aerial weapons</td>
+							<td class="cwscore">242211-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">196</td>
+							<td>Violate ceasefire </td>
+							<td class="cwscore">342211-21</td>
+						</tr>
+						<tr class="tbreak">
+							<td class="cwcode">20</td>
+							<td>USE UNCONVENTIONAL MASS VIOLENCE</td>
+							<td class="cwscore">242411-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">200</td>
+							<td>Use unconventional mass violence, not specified below</td>
+							<td class="cwscore">242411-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">201</td>
+							<td>Engage in mass expulsion</td>
+							<td class="cwscore">242411-31</td>
+						</tr>
+						<tr>
+							<td class="cwcode">202</td>
+							<td>Engage in mass killings</td>
+							<td class="cwscore">242411-31</td>
+						</tr>
+						<tr>
+							<td class="cwcode">203</td>
+							<td>Engage in ethnic cleansing</td>
+							<td class="cwscore">242411-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">204</td>
+							<td>Use chemical, biological, or radiologicalweapons</td>
+							<td class="cwscore">242411-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">2041</td>
+							<td>Use chemical, biological, or radiologicalweapons</td>
+							<td class="cwscore">242411-21</td>
+						</tr>
+						<tr>
+							<td class="cwcode">2042</td>
+							<td>Detonate nuclear weapons</td>
+							<td class="cwscore">243414-31</td>
+						</tr>
+
+					</table>
+
+				</main>
+
+
+			</div> <!-- container -->
+
+			<aside class="left-sidebar">
+
+				<div>
+					<p class="helpHeader">
+						<strong>About the OE Event Finder</strong>
+					</p>
+					<div class="about">
+						This app lets the user explore event data sets such as the famous
+						<a target="_blank" href="http://www.gdeltproject.org/"> Global Database of Events,  Languages and Tone (GDELT)</a>.  GDELT creates events by collecting news articles from the web, processing them through automated language parsers, and boiling them down into a set of fields.  These fields include codes that describe the event action (an 'event code'), who was involved in the event ('actors') and the location and tone of the event.  A full description of the CAMEO Codes is provided <a target="_blank" href="http://eventdata.parusanalytics.com/cameo.dir/CAMEO.09b6.pdf">here</a>.  
+						<br><br>
+						The OE Event Finder app renders the events on a map, shows metrics on the event data, and provides controls for filtering the events.  The raw event data can be viewed by selecting the event markers on the map.
+						<br><br>
+						Since 2013 GDEDLT events include a url that links to the original article, but there is no guarantee that the link is still active. 
+						<br><br>
+						The U.S. Army uses a list of parameters known as 'PMESII-PT' to help categorize data about a given operational environment. The letters stand for: <strong>P</strong>olitical, <strong>M</strong>ilitary, <strong>E</strong>conomic, <strong>S</strong>ocial, <strong>I</strong>nformation, <strong>I</strong>nfrastructure, <strong>P</strong>hysical Environment, and <strong>T</strong>ime.  Definitions of these parameters is given in the <a target="_blank" href="http://www.benning.army.mil/mssp/security%20topics/Potential%20Adversaries/content/pdf/ST%207-100,%20June%202013.pdf">OPFOR Battle Book for the Operational Environment</a>. 
+						<br><br>
+						The OE Event Finder includes a crosswalk of GDELT event codes to PMESII-PT variables in order to help the user find events relevant to their OE.  This crosswalk is ad-hoc, and can be modified by the user.  The table to the right shows the current mapping of the GDELT event codes to PMESII-PT variables.
+				</div>
+
+				<div>
+					<p id="techHeading" class="helpHeader">
+						<strong>Tech</strong>
+					</p>
+					<div class="about">
+						The OE Event Finder uses <a target="_blank" href="https://nodejs.org/en/">Node.js</a> and <a target="_blank" href="http://expressjs.com/">Express.js</a> to create a server, <a target="_blank" href="http://leafletjs.com/">Leaflet.js to</a> render the map, and <a target="_blank" href="https://d3js.org/">d3.js</a> to draw the bar chart.  The <a target="_blank" href="https://cloud.google.com/bigquery/create-simple-app-api">Google Biq Query API</a> is used to fetch new event data sets.
+						<br><br>
+						The OE Event Finder project was created for the 'Data Wrangling Bootcamp' class offered by <a target="_blank" href="https://www.odu.edu/">Old Dominion University</a> in Norfolk Virginia, taught by Dr. Charles Cartledge.
+						<br><br>
+
+						<div class="source">
+							OE Event Finder App by Doug Murphy <br>
+							<a target="_blank" href="http://incadencecorp.com">InCadence Strategic Solutions</a><br>
+							October, 2016<br>
+							<br>
+						</div>
+				</div>
+
+			</aside> <!--sidebar -->
+
+		</div> <!-- middle -->
+
+	</div> <!--wrapper -->
+
+</body>
+</html>

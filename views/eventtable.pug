@@ -1,0 +1,260 @@
+table(id='eventsModalTable', style="width: 90%; margin-left: -20px; border-spacing: 20px 5px;")
+
+	tr(style="background-color:#F5DE9E")
+
+		th(colspan='4') EVENT DETAILS
+
+	tr
+		td(class="eparam" title="This is the CAMEO action code describing the action that Actor1 performed upon Actor2") Event Code
+		td(colspan='3')= codeAndDescription
+
+	tr
+		td(class="eparam" title="Not part of GDELT! This is an experimental attempt to map CAMEO to PMESII-PT parameters by assigning each CAMEO code a score of 1-4 in each of the PMESII-PT variables.") PMESSI-PT Score
+		td(colspan='3', id='pmesiiScore')= pmessiScore
+
+	tr
+		td(class="eparam" title="Unique ID for each event") Global Event ID
+		td(colspan='3')= globalEventId
+
+	tr
+		td(class="eparam" title="This field is only present in the daily event stream files beginning April 1, 2013 and lists the URL of the news article the event was found in.  If the event was found in an article from the BBC Monitoring service, this field will contain 'BBC Monitoring.''  If an event was mentioned in multiple articles, only one of the URLs is provided (see the GDELT Global Knowledge Graph for the additional URLs).  This field is not present in event files prior to April 1, 2013") Source URL: 
+
+		td(colspan='3' class="srcurl" style="word-wrap:break-word;" )
+			a(target='_blank' href= sourceUrl)= sourceUrl
+
+	tr
+		td &nbsp; 
+
+		td &nbsp; 
+
+
+	tr(style="background-color:#F5DE9E")
+
+		th(colspan='4') Dates
+
+	tr
+		td(class="eparam" title="Date the event took place in YYYYMMDD format") SQLDATE 
+		td= sqldate
+		td(class="eparam" title="Alternative formatting of the event date, computed as YYYY.FFFF, where FFFF is the percentage of the year completed by that day. This collapses the month and day into a fractional range from 0 to 0.9999, capturing the 365 days of the year. The fractional component (FFFF) is computed as (MONTH * 30 + DAY) / 365. This is an approximation and does not correctly take into account the differing numbers of days in each month or leap years, but offers a simple single-number sorting mechanism for applications that wish to estimate the rough temporal distance between dates") FractionDate 
+		td= fractionDate
+
+	tr
+		td(class="eparam" title="Alternative formatting of the event date, in YYYYMM format") MonthYear 
+		td= monthYear
+		td(class="eparam" title="This field stores the date the event was added to the master database") Date Added 
+		td= dateAdded
+
+	tr
+		td(class="eparam" title="Alternative formatting of the event date, in YYYY format") Year
+		td= year
+		td  
+		td  
+	
+
+	tr
+		td &nbsp; 
+
+		td &nbsp; 
+
+	tr(style="background-color:#F5DE9E;")
+
+		th(colspan="2") Action Details 
+		
+		th(colspan="2") Action Location 
+	
+	tr
+		td(class="eparam" title="The system codes every event found in an entire document, using an array of techniques to deference and link information together. A number of previous projects such as the ICEWS initiative have found that events occurring in the lead paragraph of a document tend to be the most 'important.' This flag can therefore be used as a proxy for the rough importance of an event to create subsets of the event stream") IsRootEvent
+		td= isRootEvent
+		td(class="eparam" title="Location of Event.  This field specifies the geographic resolution of the match type and holds one of the following values:  1=COUNTRY (match was at the country level), 2=USSTATE (match was to a US state), 3=USCITY (match was to a US city or landmark), 4=WORLDCITY (match was to a city or landmark outside the US), 5=WORLDSTATE (match was to an Administrative Division 1 outside the US – roughly equivalent to a US state).  This can be used to filter events by geographic specificity, for example, extracting only those events with a landmark-level geographic resolution for mapping.  Note that matches with codes 1 (COUNTRY), 2 (USSTATE), and 5 (WORLDSTATE) will still provide a latitude/longitude pair, which will be the centroid of that country or state, but the FeatureID field below will be blank") ActionGeo_Type
+		td= actionGeo_Type
+	
+
+	tr
+		td(class="eparam" title="This is the raw CAMEO action code describing the action that Actor1 performed upon Actor2") EventCode
+		td= eventCode
+		td(class="eparam" title="Location of Event.  This is the full human-readable name of the matched location.  In the case of a country it is simply the country name.  For US and World states it is in the format of State, Country Name, while for all other matches it is in the format of City/Landmark, State, Country.  This can be used to label locations when placing events on a map.  NOTE: this field reflects the precise name used to refer to the location in the text itself, meaning it may contain multiple spellings of the same location – use the FeatureID column to determine whether two location names refer to the same place") ActionGeo_FullName
+		td= actionGeo_FullName
+	
+
+	tr
+		td(class="eparam" title="CAMEO event codes are defined in a three-level taxonomy. For events at level three in the taxonomy, this yields its level two leaf root node. For example, code 0251 (Appeal for easing of administrative sanctions) would yield an EventBaseCode of 025 (Appeal to yield). This makes it possible to aggregate events at various resolutions of specificity. For events at levels two or one, this field will be set to EventCode") EventBaseCode
+		td= eventBaseCode
+		td(class="eparam" title="Location of Event.  This is the 2-character FIPS10-4 country code for the location") ActionGeo_CountryCode
+		td= actionGeo_CountryCode
+	
+
+	tr
+		td(class="eparam" title="Similar to EventBaseCode, this defines the root-level category the event code falls under.  For example, code 0251 (Appeal for easing of administrative sanctions) has a root code of 02 (Appeal).  This makes it possible to aggregate events at various resolutions of specificity.  For events at levels two or one, this field will be set to EventCode") EventRootCode
+		td= eventRootCode
+		td(class="eparam" title="Location of Event.  This is the 2-character FIPS10-4 country code followed by the 2-character FIPS10-4 administrative division 1 (ADM1) code for the administrative division housing the landmark.  In the case of the United States, this is the 2-character shortform of the state’s name (such as TX for Texas)") ActionGeo_ADM1Code
+		td= actionGeo_ADM1Code
+	
+
+	tr
+		td(class="eparam" title="The entire CAMEO event taxonomy is ultimately organized under four primary classifications: Verbal Cooperation, Material Cooperation, Verbal Conflict, and Material Conflict.  This field specifies this primary classification for the event type, allowing analysis at the highest level of aggregation.  The numeric codes in this field map to the Quad Classes as follows: 1=Verbal Cooperation, 2=Material Cooperation, 3=Verbal Conflict, 4=Material Conflict") QuadClass
+		td= quadClass
+		td(class="eparam" title="Location of Event.  This is the centroid latitude of the landmark for mapping") ActionGeo_Lat
+		td= actionGeo_Lat
+	
+	tr
+		td(class="eparam" title="Each CAMEO event code is assigned a numeric score from -10 to +10, capturing the theoretical potential impact that type of event will have on the stability of a country.  This is known as the Goldstein Scale.  This field specifies the Goldstein score for each event type.  NOTE: this score is based on the type of event, not the specifics of the actual event record being recorded – thus two riots, one with 10 people and one with 10,000, will both receive the same Goldstein score.  This can be aggregated to various levels of time resolution to yield an approximation of the stability of a location over time") GoldsteinScale
+		td= goldsteinScale
+		td(class="eparam" title="Location of Event.  This is the centroid longitude of the landmark for mapping") ActionGeo_Long
+		td= actionGeo_Long
+	
+
+	tr
+		td(class="eparam" title="This is the total number of mentions of this event across all source documents.  Multiple references to an event within a single document also contribute to this count.  This can be used as a method of assessing the 'importance' of an event: the more discussion of that event, the more likely it is to be significant.  The total universe of source documents and the density of events within them vary over time, so it is recommended that this field be normalized by the average or other measure of the universe of events during the time period of interest.  NOTE: this field is updated over time if news articles published later discuss this event (for example, in the weeks after a major bombing there will likely be numerous news articles published mentioning the original bombing as context to new developments, while on the one-year anniversary there will likely be further coverage).  At this time the daily event stream only includes new event records found each day and does not include these updates; a special 'updates' stream will be released in Summer 2014 that will include these") NumMentions
+		td= numMentions
+		td(class="eparam" title="Location of Event.  This is the GNS or GNIS FeatureID for this location.  More information on these values can be found in (http://www.dlib.org/dlib/september12/leetaru/09leetaru.html) NOTE: This field will be blank except when Actor1Geo_Type has a value of 3 or 4.  A small percentage of small cities and towns may have a blank value in this field even for Actor1Geo_Type values of 3 or 4: this will be corrected in the 2.0 release of GDELT.  NOTE: This field can contain both positive and negative numbers, see the URL above for more information on this") ActionGeo_FeatureID
+		td= actionGeo_FeatureID
+	
+
+	tr
+		td(class="eparam" title="This is the total number of information sources containing one or more mentions of this event.  This can be used as a method of assessing the 'importance' of an event: the more discussion of that event, the more likely it is to be significant.  The total universe of sources varies over time, so it is recommended that this field be normalized by the average or other measure of the universe of events during the time period of interest.  NOTE: same as with NumMentions, this field is updated over time to reflect subsequent coverage of the event.  Similarly, these updates are not included in the daily event stream, but will be incorporated into a new 'updates' stream to be released in Summer 2014") NumSources
+		td= numSources
+		td  
+		td  
+	
+
+	tr
+		td(class="eparam" title="This is the total number of source documents containing one or more mentions of this event.  This can be used as a method of assessing the 'importance' of an event: the more discussion of that event, the more likely it is to be significant.  The total universe of source documents varies over time, so it is recommended that this field be normalized by the average or other measure of the universe of events during the time period of interest.  NOTE: same as with NumMentions, this field is updated over time to reflect subsequent coverage of the event, but these updates are not currently part of the daily event stream") NumArticles
+		td= numArticles
+		td  
+		td  
+	
+	tr
+		td(class="eparam" title="This is the average 'tone' of all documents containing one or more mentions of this event.  The score ranges from -100 (extremely negative) to +100 (extremely positive).  Common values range between -10 and +10, with 0 indicating neutral.  This can be used as a method of filtering the 'context' of events as a subtle measure of the importance of an event and as a proxy for the 'impact' of that event.  For example, a riot event with a slightly negative average tone is likely to have been a minor occurrence, whereas if it had an extremely negative average tone, it suggests a far more serious occurrence.  A riot with a positive score likely suggests a very minor occurrence described in the context of a more positive narrative (such as a report of an attack occurring in a discussion of improving conditions on the ground in a country and how the number of attacks per day has been greatly reduced)") AvgTone
+		td= avgTone
+		td  
+		td  
+	
+
+	tr
+		td &nbsp; 
+
+		td &nbsp; 
+
+	tr(style="background-color: #F5DE9E;")
+		
+		th(colspan='2') Actor 1 Details 
+
+		th(colspan='2') Actor 2 Details 
+
+	tr
+		td(class="eparam" title="The complete raw CAMEO code for Actor1 (includes geographic, class, ethnic, religious, and type classes). May be blank if the system was unable to identify an Actor1") Actor1Code
+		td= actor1Code
+		td(class="eparam" title="The complete raw CAMEO code for Actor2 (includes geographic, class, ethnic, religious, and type classes). May be blank if the system was unable to identify an Actor2") Actor2Code
+		td= actor2Code
+	
+
+	tr
+		td(class="eparam" title="The actual name of the Actor 1. In the case of a political leader or organization, this will be the leader’s formal name (GEORGE W BUSH, UNITED NATIONS), for a geographic match it will be either the country or capital/major city name (UNITED STATES / PARIS), and for ethnic, religious, and type matches it will reflect the root match class (KURD, CATHOLIC, POLICE OFFICER, etc). May be blank if the system was unable to identify an Actor1") Actor1Name
+		td= actor1Name
+		td(class="eparam" title="The actual name of the Actor2. In the case of a political leader or organization, this will be the leader’s formal name (GEORGE W BUSH, UNITED NATIONS), for a geographic match it will be either the country or capital/major city name (UNITED STATES / PARIS), and for ethnic, religious, and type matches it will reflect the root match class (KURD, CATHOLIC, POLICE OFFICER, etc). May be blank if the system was unable to identify an Actor2") Actor2Name
+		td= actor2Name
+	
+
+	tr
+		td(class="eparam" title="The 3-character CAMEO code for the country affiliation of Actor1. May be blank if the system was unable to identify an Actor1 or determine its country affiliation (such as “UNIDENTIFIED GUNMEN”). Note that through 8/26/2013 matches for South Sudan (“SSD”) may be missing from this field. The country code will be correctly present in the raw CAMEO code in Actor1Code, but may not have been correctly placed into the Actor1CountryCode field – only South Sudan was affected by this issue") Actor1CountryCode
+		td= actor1CountryCode
+		td(class="eparam" title="The 3-character CAMEO code for the country affiliation of Actor2. May be blank if the system was unable to identify an Actor2 or determine its country affiliation (such as “UNIDENTIFIED GUNMEN”). Note that through 8/26/2013 matches for South Sudan (“SSD”) may be missing from this field. The country code will be correctly present in the raw CAMEO code in Actor2Code, but may not have been correctly placed into the Actor2CountryCode field – only South Sudan was affected by this issue") Actor2CountryCode
+		td= actor2CountryCode
+	
+
+	tr
+		td(class="eparam" title="If Actor1 is a known IGO/NGO/rebel organization (United Nations, World Bank, al-Qaeda, etc) with its own CAMEO code, this field will contain that code") Actor1KnownGroupCode
+		td= actor1KnownGroupCode
+		td(class="eparam" title="If Actor2 is a known IGO/NGO/rebel organization (United Nations, World Bank, al-Qaeda, etc) with its own CAMEO code, this field will contain that code") Actor2KnownGroupCode
+		td= actor2KnownGroupCode
+	
+
+	tr
+		td(class="eparam" title="If the source document specifies the ethnic affiliation of Actor1 and that ethnic group has a CAMEO entry, the CAMEO code is entered here. NOTE: a few special groups like ARAB may also have entries in the type column due to legacy CAMEO behavior. NOTE: this behavior is brand-new and highly experimental and may not capture all affiliations properly") Actor1EthnicCode
+		td= actor1EthnicCode
+		td(class="eparam" title="If the source document specifies the ethnic affiliation of Actor2 and that ethnic group has a CAMEO entry, the CAMEO code is entered here. NOTE: a few special groups like ARAB may also have entries in the type column due to legacy CAMEO behavior. NOTE: this behavior is brand-new and highly experimental and may not capture all affiliations properly") Actor2EthnicCode
+		td= actor2EthnicCode
+	
+
+	tr
+		td(class="eparam" title="If the source document specifies the religious affiliation of Actor1 and that religious group has a CAMEO entry, the CAMEO code is entered here. NOTE: a few special groups like JEW may also have entries in the geographic or type columns due to legacy CAMEO behavior. NOTE: this behavior is brand-new and highly experimental and may not capture all affiliations properly") Actor1Religion1Code
+		td= actor1Religion1Code
+		td(class="eparam" title="If the source document specifies the religious affiliation of Actor2 and that religious group has a CAMEO entry, the CAMEO code is entered here. NOTE: a few special groups like JEW may also have entries in the geographic or type columns due to legacy CAMEO behavior. NOTE: this behavior is brand-new and highly experimental and may not capture all affiliations properly") Actor2Religion1Code
+		td= actor2Religion1Code
+	
+
+	tr
+		td(class="eparam" title="If multiple religious codes are specified for Actor1, this contains the secondary code. Some religion entries automatically use two codes, such as Catholic, which invokes Christianity as Code1 and Catholicism as Code2") Actor1Religion2Code
+		td= actor1Religion2Code
+		td(class="eparam" title="If multiple religious codes are specified for Actor2, this contains the secondary code. Some religion entries automatically use two codes, such as Catholic, which invokes Christianity as Code1 and Catholicism as Code2") Actor2Religion2Code
+		td= actor2Religion2Code
+	
+
+	tr
+		td(class="eparam" title="The 3-character CAMEO code of the CAMEO type or role of Actor1, if specified. This can be a specific role such as Police Forces, Government, Military, Political Opposition, Rebels, etc, a broad role class such as Education, Elites, Media, Refugees, or organizational classes like Non-Governmental Movement. Special codes such as Moderate and Radical may refer to the operational strategy of a group") Actor1Type1Code
+		td= actor1Type1Code
+		td(class="eparam" title="The 3-character CAMEO code of the CAMEO type or role of Actor2, if specified. This can be a specific role such as Police Forces, Government, Military, Political Opposition, Rebels, etc, a broad role class such as Education, Elites, Media, Refugees, or organizational classes like Non-Governmental Movement. Special codes such as Moderate and Radical may refer to the operational strategy of a group") Actor2Type1Code
+		td= actor2Type1Code
+	
+
+	tr
+		td(class="eparam" title="If multiple type/role codes are specified for Actor1, this returns the second code") Actor1Type2Code
+		td= actor1Type2Code
+		td(class="eparam" title="If multiple type/role codes are specified for Actor2, this returns the second code") Actor2Type2Code
+		td= actor2Type2Code
+	
+
+	tr
+		td(class="eparam" title="If multiple type/role codes are specified for Actor1, this returns the third code") Actor1Type3Code
+		td= actor1Type3Code
+		td(class="eparam" title="If multiple type/role codes are specified for Actor2, this returns the third code") Actor2Type3Code
+		td= actor2Type3Code
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This field specifies the geographic resolution of the match type and holds one of the following values:  1=COUNTRY (match was at the country level), 2=USSTATE (match was to a US state), 3=USCITY (match was to a US city or landmark), 4=WORLDCITY (match was to a city or landmark outside the US), 5=WORLDSTATE (match was to an Administrative Division 1 outside the US – roughly equivalent to a US state).  This can be used to filter events by geographic specificity, for example, extracting only those events with a landmark-level geographic resolution for mapping.  Note that matches with codes 1 (COUNTRY), 2 (USSTATE), and 5 (WORLDSTATE) will still provide a latitude/longitude pair, which will be the centroid of that country or state, but the FeatureID field below will be blank") Actor1Geo_Type
+		td= actor1Geo_Type
+		td(class="eparam" title="Location of Actor2.  This field specifies the geographic resolution of the match type and holds one of the following values:  1=COUNTRY (match was at the country level), 2=USSTATE (match was to a US state), 3=USCITY (match was to a US city or landmark), 4=WORLDCITY (match was to a city or landmark outside the US), 5=WORLDSTATE (match was to an Administrative Division 1 outside the US – roughly equivalent to a US state).  This can be used to filter events by geographic specificity, for example, extracting only those events with a landmark-level geographic resolution for mapping.  Note that matches with codes 1 (COUNTRY), 2 (USSTATE), and 5 (WORLDSTATE) will still provide a latitude/longitude pair, which will be the centroid of that country or state, but the FeatureID field below will be blank") Actor2Geo_Type
+		td= actor2Geo_Type
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the full human-readable name of the matched location.  In the case of a country it is simply the country name.  For US and World states it is in the format of 'State, Country Name', while for all other matches it is in the format of 'City/Landmark, State, Country'.  This can be used to label locations when placing events on a map.  NOTE: this field reflects the precise name used to refer to the location in the text itself, meaning it may contain multiple spellings of the same location – use the FeatureID column to determine whether two location names refer to the same place") Actor1Geo_FullName
+		td= actor1Geo_FullName
+		td(class="eparam" title="Location of Actor2.  This is the full human-readable name of the matched location.  In the case of a country it is simply the country name.  For US and World states it is in the format of State, Country Name, while for all other matches it is in the format of City/Landmark, State, Country.  This can be used to label locations when placing events on a map.  NOTE: this field reflects the precise name used to refer to the location in the text itself, meaning it may contain multiple spellings of the same location – use the FeatureID column to determine whether two location names refer to the same place") Actor2Geo_FullName
+		td= actor2Geo_FullName
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the 2-character FIPS10-4 country code for the location") Actor1Geo_CountryCode
+		td= actor1Geo_CountryCode
+		td(class="eparam" title="Location of Actor2.  This is the 2-character FIPS10-4 country code for the location") Actor2Geo_CountryCode
+		td= actor2Geo_CountryCode
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the 2-character FIPS10-4 country code followed by the 2-character FIPS10-4 administrative division 1 (ADM1) code for the administrative division housing the landmark.  In the case of the United States, this is the 2-character shortform of the state’s name (such as 'TX' for Texas)") Actor1Geo_ADM1Code
+		td= actor1Geo_ADM1Code
+		td(class="eparam" title="Location of Actor2.  This is the 2-character FIPS10-4 country code followed by the 2-character FIPS10-4 administrative division 1 (ADM1) code for the administrative division housing the landmark.  In the case of the United States, this is the 2-character shortform of the state’s name (such as 'TX' for Texas)") Actor2Geo_ADM1Code
+		td= actor2Geo_ADM1Code
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the centroid latitude of the landmark for mapping") Actor1Geo_Lat
+		td= actor1Geo_Lat
+		td(class="eparam" title="Location of Actor2.  This is the centroid latitude of the landmark for mapping") Actor2Geo_Lat
+		td= actor2Geo_Lat
+	
+
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the centroid longitude of the landmark for mapping") Actor1Geo_Long
+		td= actor1Geo_Long
+		td(class="eparam" title="Location of Actor2.  This is the centroid longitude of the landmark for mapping") Actor2Geo_Long
+		td= actor2Geo_Long
+	
+	tr
+		td(class="eparam" title="Location of Actor1.  This is the GNS or GNIS FeatureID for this location.  More information on these values can be found in (http://www.dlib.org/dlib/september12/leetaru/09leetaru.html) NOTE: This field will be blank except when Actor1Geo_Type has a value of 3 or 4.  A small percentage of small cities and towns may have a blank value in this field even for Actor1Geo_Type values of 3 or 4: this will be corrected in the 2.0 release of GDELT.  NOTE: This field can contain both positive and negative numbers, see the URL above for more information on this") Actor1Geo_FeatureID
+		td= actor1Geo_FeatureID
+		td(class="eparam" title="Location of Actor2.  This is the GNS or GNIS FeatureID for this location.  More information on these values can be found in (http://www.dlib.org/dlib/september12/leetaru/09leetaru.html) NOTE: This field will be blank except when Actor1Geo_Type has a value of 3 or 4.  A small percentage of small cities and towns may have a blank value in this field even for Actor1Geo_Type values of 3 or 4: this will be corrected in the 2.0 release of GDELT.  NOTE: This field can contain both positive and negative numbers, see the URL above for more information on this") Actor2Geo_FeatureID
+		td= actor2Geo_FeatureID
+

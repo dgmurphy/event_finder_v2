@@ -1,0 +1,677 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 12px/18px Arial, sans-serif;
+	height: 100%;
+	color:#555555;
+}
+
+a {
+
+	color: #0EA2F9;
+	text-decoration: none;
+}
+
+.wrapper {
+	width: 100%;
+	min-width: 800px;
+	min-height: 600px;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+
+.header {
+	margin-bottom:20px;
+  height: 90px;
+  background-color: #C0D8FB;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: #444;
+}
+
+#title {
+  width:600px; 
+  margin:auto;
+}
+
+.header h1 {
+	
+	line-height: 1.0em;
+	font-size: 3.0em;
+	margin-top: 0px;
+	padding-top: 20px;
+  text-align:center;
+	color: #444444;
+}
+
+.globe img {
+	width: 95px;
+	float:left;
+}
+
+#tagline {
+  margin:  0 auto 0 auto; 
+  width:600px; 
+  text-align:center;
+  font-size: 14px;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+	width: 100%;
+	padding: 0 0 0;
+	position: relative;
+}
+.middle:after {
+	display: table;
+	clear: both;
+	content: '';
+}
+.container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+.content {
+	padding: 0px 64px 0px 320px;
+}
+
+
+.helpContent {
+  padding: 0px 64px 0px 390px;
+}
+
+/* Map Area
+----------------------------------------------------------------------- */
+
+#eventDetails {
+  margin-left: 10px;
+  color:grey;
+}
+
+
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+.left-sidebar {
+	float: left;
+	width: 260px;
+	margin-left: -100%;
+	position: relative;
+	background: #ffffff;
+	padding: 0px 12px 0px 36px;
+}
+
+#filtersHeading {
+  
+  border-bottom-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+
+}
+
+.leftHeader {
+
+  border-bottom-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  margin-top:35px;
+  margin-bottom: 10px;
+}
+
+.helpHeader {
+
+  border-bottom-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  margin-top:15px;
+  margin-bottom: 10px;
+}
+
+
+#chartTitle {
+  width: 80px;
+  margin: 4px auto 0px auto;
+  font-size:0.9em;
+  text-aling: center;
+}
+
+#toneHeading {
+  
+}
+
+
+#savedSetsInfo {
+  margin-bottom: 10px;
+}
+
+/* buttons
+-----------------------------------------------------------------------------*/
+
+.send {
+  background: #3498db;
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 9px 4px 9px;
+  text-decoration: none;
+  border: none;
+  height: 24px;
+  
+}
+
+.send:hover {
+  background: #45a9ec;
+  text-decoration: none;
+}
+
+.send:disabled {
+	background: lightgray;
+	/*opacity: 0.5;*/
+
+}
+
+.clr {
+  background: #6565af;
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 6px 16px 6px 16px;
+  text-decoration: none;
+  border: none;
+  width:150px;
+}
+
+.clr:hover {
+  background: #7676bf;
+  text-decoration: none;
+}
+
+button:focus {
+	outline:0;
+}
+
+.mockButton {
+  margin-top:5px;
+}
+
+/* ------------------ select ---------------------------- */
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    /*width: 220px;*/
+    border-radius: 3px;
+    /*overflow: hidden;*/
+    background-color: #fff;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    /* width: 130%; */
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+#leafletmap  {
+	margin-top: 12px; 
+	height: 350px;
+}
+
+
+.buttonspin {
+	
+	float: right;
+    position: relative;
+    left: -80px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background-image: url("ajax-loader.gif");
+    background-repeat: no-repeat;
+
+}
+
+
+#mockspin, #mockspin2, #mockspin3, #gdeltspin {
+	display: none;
+}
+
+#apiDay {
+  margin-top: 10px;
+}
+
+#dayLabel {
+  margin-bottom: 6px;
+}
+
+#dayinput {
+  width:25px; 
+  margin-left:4px; 
+  margin-bottom:5px;
+}
+
+#monthselect {
+  width:50px;
+}
+
+#yearselect {
+  width:65px;
+}
+
+#bqlimit {
+  width:40px; 
+  margin-left:6px;
+  
+}
+
+
+.numDaysDiv {
+  width:80px;
+  float:right;
+
+}
+
+#eventCountDiv {
+  clear:both;
+  width:260px;
+}
+
+#numDays {
+  width:25px; 
+  margin-left:6px;
+  margin-bottom: 6px;
+  float:right;
+}
+
+.numlabel {
+  width:90px;
+}
+
+
+#bqsubmitdiv {
+  margin-top: 10px;
+  width: 125px;
+  margin: 12px auto 10px auto;
+}
+
+/* ----------  Charts ----------------- */
+.bar { fill: lightgray; }
+
+.bar:hover {
+  fill: lightsteelblue ;
+}
+
+div.tooltip { 
+    position: absolute; 
+    margin-left:-20px;
+    margin-top: -10px;
+    text-align: center;     
+    width: 50px;          
+    height: 16px;         
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: gray; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;  
+    color: white;   
+}
+
+/* ---  Pmequalzier ---------------------  */
+#eqwrap {
+  width: 276px;
+}
+
+div #eq {
+  width: 226px; 
+  margin-left:32px; 
+  margin-top: -12px;
+}
+
+#filterLabel {
+  font-size: 0.9em; 
+  width:25px; 
+  float:left;
+  line-height:1.2em;
+  margin-top:12px;
+}
+
+#eq > span {
+    height:40px; 
+    float:left; 
+    margin:10px 10px 3px 10px;
+  }
+
+#eq .ui-slider-vertical {
+  width: 6px;
+}
+
+#eq .ui-slider-handle {
+  height: 6px;
+  width: 12px;
+}
+
+#scaleSlider{
+  display: inline-block;
+  width:95px;
+}
+
+.scaleSliderDiv .ui-slider-horizontal {
+  height: 6px; 
+  margin-left: 15px;
+}
+
+#scaleSlider .ui-slider-handle {
+  height: 12px;
+  width: 6px;
+}
+
+
+#toneLabel {
+  display: inline-block;
+  width: 70px;
+}
+
+#toneSlider{
+  display: inline-block;
+  width:155px;
+}
+
+.toneSliderDiv {
+  margin-top: 6px;
+}
+
+.toneSliderDiv .ui-slider-horizontal {
+  height: 6px; 
+}
+
+#toneSlider .ui-slider-handle {
+  height: 12px;
+  width: 6px;
+}
+
+
+#toneVal {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10px;
+}
+
+#toneSign {
+  margin-top: 6px;
+}
+
+#signInput {
+  margin-left:8px;
+}
+
+/* nth-of-type(2) picks the second label only*/
+#signInput  label:nth-of-type(2){
+  margin-left: 6px;
+}
+
+div #limitValues  {
+  margin-left:24px;
+
+}
+
+#limitValues > span {
+  margin-left: 19px;
+  font-size: 10px;
+}
+
+#applyFiltersDiv {
+  width: 130px;
+  margin: 14px auto 10px auto;
+
+}
+
+#addOrReplaceDiv {
+  margin-top: 8px;
+  margin-left:6px;
+}
+
+/* nth-of-type(2) picks the second label only*/
+#addOrReplaceDiv  label:nth-of-type(2){
+  margin-left: 6px;
+}
+
+#loadDataDiv {
+  width: 90px;
+  margin: 12px auto 10px auto;
+}
+
+#loadDataBtn {
+  width: 90px;
+}
+
+
+
+#replaceAppendLabel, 
+#manageData {
+  margin-right: 10px;
+}
+
+#dataSelect, 
+#apiSelect {
+  width: 100%;
+}
+
+#bqgdeltbtn {
+  width: 125px;
+  margin-top: 6px;
+}
+
+/* ------------ Map Title ------------------ */
+
+#legendIcon .icon {
+  float: left;
+  width: 24px;
+  margin-top: 0px;
+  stroke: gray;
+  fill: gray;
+  margin-right: 6px;
+}
+
+#resultsText {
+  display: inline-block;
+  width: 70%;
+}
+
+#eventCount {
+  float:right;
+  width: 20%;
+}
+
+#applyScaleBtn {
+  height:20px;
+  font-size: 9px;
+  width:42px;
+  margin-left:6px;
+
+}
+
+#markerScale {
+  margin-top: 4px;
+}
+
+#eventsTable {
+  text-align: left;
+  width: 100%;
+  border-spacing: 10px;
+}
+
+tr .descriptioncode {
+  text-align: center;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: steelblue;
+  fill: steelblue;
+}
+
+.icon-link, .icon-info {
+  font-size: 16px;
+}
+
+.icon-link:active, .icon-info:active {
+  stroke: blue;
+  fill: blue;}
+
+#eventsDiv {
+  margin-top: 10px;
+}
+
+
+/* ------------------ EVENT MODAL ---------------------- */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#eventsModalTable  {
+  color: black;
+}
+.eparam {
+  font-weight: bold;
+  color:gray;
+}
+
+.unlocklabel {
+  margin-left: 15px;
+}
+
+#unlockinput {
+  width: 80px;
+  margin-left:6px;
+  float:right;
+}
+
+
+.source {
+  font-style: italic;
+}
+
+#cwtable {
+  width: 90%; 
+  /*margin-left: -20px; */
+  border-spacing: 20px 5px;")
+}
+
+.cwcode, .cwscore {
+  text-align: left;
+}
+
+.efnav {
+    border-top-left-radius: 5px;
+    border-top-right-radius:  5px;
+    background: #444;
+    padding: 3px 3px 3px 10px; 
+    float:right;
+    margin-right: 20px;
+    color: lightgray;
+    font-weight: bold;
+    width: 40px;
+    height: 20px; 
+    position: relative;
+    top: -10px;
+}
+
+.tbreak td {
+    font-weight: bold;
+    color: steelblue;
+  }
+
+  #markerData {
+    margin-top: 10px;
+  }
+
+  input[type="radio"] {
+    margin-top: 8px;
+    margin-left: 8px;
+  }
+
+#markerDataForm {
+  display: inline;
+}
+  
+/* ------------------ Ethnicities ---------------------- */
+#ethsTable {
+  width: 150px;
+}
+
+#ethsTable td {
+  text-align: center;
+}
+
+.ethcol1 {
+  /*padding-left: 5px;*/
+}
+
+.colorbox {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+}

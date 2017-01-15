@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>OE Event Finder</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+	<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
+</head>
+
+<body>
+
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-link" viewBox="0 0 32 32">
+<title>link</title>
+<path class="path1" d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
+<path class="path2" d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
+</symbol>
+<symbol id="icon-info" viewBox="0 0 32 32">
+<title>info</title>
+<path class="path1" d="M14 9.5c0-0.825 0.675-1.5 1.5-1.5h1c0.825 0 1.5 0.675 1.5 1.5v1c0 0.825-0.675 1.5-1.5 1.5h-1c-0.825 0-1.5-0.675-1.5-1.5v-1z"></path>
+<path class="path2" d="M20 24h-8v-2h2v-6h-2v-2h6v8h2z"></path>
+<path class="path3" d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+</symbol>
+</defs>
+</svg>
+
+
+	<div class="wrapper">
+
+		<div class="globe"><img alt="OE Event Finder Icon" src="css/globeglass.png"/></div>
+
+		<header class="header">
+			<div id="title" >
+				<h1>OE Event Finder</h1> 
+				<div id="tagline">
+					Browse event data based on the 'Operational Environment' (location and PMESII-PT)
+				</div>
+			</div>
+			<a href="./about.html"><div class="efnav">About</div></a>
+		</header>
+
+		<div class="middle">
+
+			<div class="container">
+
+				<main class="content">
+
+					<div id="#mapContainer">
+
+						<div id="resultsContainer">
+
+							<div id="legendIcon" title="legend">
+								<svg class="icon icon-info icon-legend">
+									<use xlink:href="#icon-info"></use>
+								</svg>
+							</div>
+
+							<div id="resultsText">
+								<strong>Results:</strong>No data yet.
+							</div>
+
+							<div id="eventCount"> </div>
+
+						</div>
+
+						<div id="leafletmap"><p>MAP</p></div>
+					</div> <!-- map container -->
+
+					<div id="profileDiv" class="leftHeader" style="margin-top:10px;">
+						<strong>Actors Profile:</strong>
+					</div> 
+					<div><strong>Ethnicities: </strong><span id="ethCount"></span></div>
+					<table id="ethsTable"> </table>
+
+
+					<div id="eventsDiv" class="leftHeader">
+						<strong>Event Summaries:</strong>
+						<span id="eventDetails">(Click a marker to get event details)</span>
+					</div> 
+
+					<table id="eventsTable">
+					</table>
+
+					<div id="eventModal" class="modal"> 
+					  <!-- Modal content -->
+					  <div class="modal-content">
+
+					    <span class="close">x</span>
+					    <div id = "eventHtml"> </div>
+					  </div>
+					</div>
+
+				</main>
+			</div>
+
+			<aside class="left-sidebar">
+
+				<div>
+					<p id="filtersHeading" class="">
+						<strong>Map Score and Filters</strong>
+					</p>
+				</div>
+
+				<!--
+				<div id="chartTitle">
+					Map Score
+				</div>
+				-->
+
+				<div id="d3chart"> </div>
+
+				<div id="eqwrap">
+
+					<div id="filterLabel">
+						pmesii:
+					</div>
+
+					<div id="eq" class="pmesiisliders">
+							<span id="epol" class="fpol">0</span>
+							<span id="emil" class="fmil">0</span>
+							<span id="eeco" class="feco">0</span>
+							<span id="esoc" class="fsoc">0</span>
+							<span id="einf" class="finf">0</span>
+							<span id="eifr" class="fifr">0</span>
+							<span id="ephy" class="fphy">0</span>
+							<span id="etim" class="ftim">0</span>
+					</div>
+
+				</div>
+				
+				<div id="limitValues" class="limitValues">
+						<span id="lpol" class="fpol">2</span>
+						<span id="lmil" class="fmil">2</span>
+						<span id="leco" class="feco">2</span>
+						<span id="lsoc" class="fsoc">2</span>
+						<span id="linf" class="finf">2</span>
+						<span id="lifr" class="fifr">2</span>
+						<span id="lphy" class="fphy">2</span>
+						<span id="ltim" class="ftim">2</span>
+				</div>
+
+
+				<div class="toneSliderDiv">
+					<span id="toneLabel">Tone mag.:</span>
+					<div id="toneSlider"></div>
+					<span id="toneVal">0</span>
+				</div>
+
+				<div id="toneSign">
+					<span id="toneSignLabel">Tone sign:</span>
+					<span id="signInput">   
+						<label><input checked type="checkbox" id="tpos" value="tpos">&nbsp;Positive</label>
+						<label><input checked type="checkbox" id="tneg" value="tneg">&nbsp;Negative</label>
+					</span>
+				</div>
+
+				<div id="applyFiltersDiv" >
+					<button id="applyFiltersBtn" class="send">Apply</button>
+					<button id="resetFiltersBtn" class="send">Reset</button>
+					<!--<button id="clearMapBtn" class="send">Clear Map</button>-->
+				</div>
+
+
+				<div id="MapGraphics" class="leftHeader">
+					<strong>Map Graphics</strong>
+				</div>
+
+				<div id="markerScale" class="scaleSliderDiv">
+					Marker Scale:<span id="scaleSlider"></span>
+					<button class="send" id="applyScaleBtn">Apply</button>
+				</div>
+
+				<div id="markerData" class="markerDataDiv">
+					Marker:&nbsp;&nbsp;
+					 <form id="markerDataForm">
+					  	<input id="toneRadio" type="radio" name="markerdata" value="Tone" checked> Avg. Tone
+					  	&nbsp;&nbsp;
+					  	<input id="gsRadio" type="radio" name="markerdata" value="Goldstein"> Goldstein Scale	
+					 </form>  			
+				</div>
+
+
+
+				<div>
+					<p id="savedDataHeading" class="leftHeader">
+						<strong>Archived Event Data Sets</strong>
+					</p>
+				</div>
+
+				<select id="dataSelect" name="dataSelect" class="select-style">
+							<option value="GDT_Jan2016_DATE_500.json">GDT Jan 2016 DATE (500)</option>
+							<option value="GDT_Jan2016_DATE_1K.json">GDT Jan 2016 DATE (1K)</option>
+							<option value="GDT_2016_DATE_Ethnic_5K.json">GDT 2016 DATE Ethnic (5K)</option>
+							<option value="GDT_Aug2016_Global_5K.json">GDT Aug 2016 Global (5K)</option>
+							<option value="GDT_Aug2016_Global_10K.json">GDT Aug 2016 Global (10K)</option>
+							<option value="GDT_Aug2016_Tidewater_5K.json">GDT Aug 2016 Tidewater (5K)</option>
+				</select>	
+
+				<!--
+				<div id="addOrReplaceDiv">
+					<span id="replaceAppendLabel">Action: </span>
+					 
+						<label><input checked type="radio" name="addReplace" value="Replace">&nbsp;Replace</label>
+						<label><input type="radio" name="addReplace" value="Append">&nbsp;Append</label>
+					 
+				</div>
+				-->
+
+				<div id="loadDataDiv" >
+					<button id="loadDataBtn" class="send">Load Data</button>
+					<!--<span id="manageData"><a href="#">Manage archives...</a></span>-->
+				</div>
+
+
+				<div>
+					<p id="liveDataHeading" class="leftHeader">
+						<strong>Online Event Data Sets</strong>
+					</p>
+				</div>
+
+				<div>
+				<select id="apiSelect" name="apiSelect" class="select-style">
+						<option value="GdeltBigQuery">GDELT- Big Query API</option>
+						<option disabled value="ElDiablo">EL: DIABLO</option>
+						<option disabled value="Icews">ICEWS</option>
+					</select>	
+				</div>
+
+				<div id="apiDay">
+					<form id="bqApiForm">
+						<div id="dayLabel">Start Date (day / month / year):</div>
+						<input type="text" name="dayinput" id="dayinput" value="1">				
+						<select id="monthselect" name="monthselect" class="select-style">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>					
+						<select id="yearselect" name="yearselect" class="select-style">
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+							<option value="2010">2010</option>
+							<option value="2005">2005</option>
+							<option value="1995">1995</option>
+							<option value="1990">1990</option>
+							<option value="1980">1980</option>
+						</select>	
+
+						<div id="numDaysDiv" class="numDaysDiv">
+							<label class="numlabel">+ days:</label>
+							<input type="text" id="numDays" name="numDays" value="1">
+						</div>
+
+
+						<div  id="eventCountDiv" >
+							<label class="numlabel" title="Limited to 1000">Results limit:</label>
+							<input type="text" id="bqlimit" name="eventlimit" value="100">
+							<label class="unlocklabel" title="To enable the Big Query Button">Key:</label>
+							<input type="text" id="unlockinput" name="unlockinput" value="pass-key">
+						</div>
+
+						<div id="bqsubmitdiv">
+							<button id="bqgdeltbtn" class="send">Submit Big Query</button>
+							<div id="gdeltspin" class="buttonspin"></div>
+						</div>
+
+					</form> <!-- bqApiForm -->
+				</div>		
+
+			</aside><!-- .left-sidebar -->
+
+		</div><!-- .middle-->
+
+	</div><!-- .wrapper -->
+
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script src="/js/go.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="/js/d3/d3.min.js"></script>
+	<script src="/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+</body>
+</html>

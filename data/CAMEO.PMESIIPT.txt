@@ -1,0 +1,312 @@
+PMESII-PT CAMEOEVENTCODE EVENTDESCRIPTION
+21144101 01	MAKE PUBLIC STATEMENT
+21144101 010	Make statement, not specified below
+21144101 011	Decline comment
+21144101 012	Make pessimistic comment
+21144101 013	Make optimistic comment
+42334101 014	Consider policy option
+21144101 015	Acknowledge or claim responsibility
+21144101 016	Deny responsibility
+21144103 017	Engage in symbolic act
+21144101 018	Make empathetic comment
+21144101 019	Express accord
+31233111 02	APPEAL
+31233111 020	Appeal, not specified below
+31243321 021	Appeal for material cooperation, not specified below
+31442321 0211	Appeal for economic cooperation
+34232321 0212	Appeal for military cooperation
+31243211 0213	Appeal for judicial cooperation
+34124101 0214	Appeal for intelligence
+41123101 022	Appeal for diplomatic cooperation, such as policy support
+21423311 023	Appeal for aid, not specified below
+21421211 0231	Appeal for economic aid
+24111111 0232	Appeal for military aid
+30341211 0233	Appeal for humanitarian aid
+24231111 0234	Appeal for military protection or peacekeeping
+41111111 024	Appeal for political reform, not specified below
+42222212 0241	Appeal for change in leadership
+42222212 0242	Appeal for policy change
+42142101 0243	Appeal for rights
+43232201 0244	Appeal for change in institutions, regime
+33333101 025	Appeal to yield
+42333201 0251	Appeal for easing of administrative sanctions
+42143101 0252	Appeal for easing of popular dissent
+43142102 0253	Appeal for release of persons or property
+31422211 0254	Appeal for easing of economic sanctions, boycott, or embargo
+42222111 0255	Appeal for target to allow international involvement (non-mediation)
+34222101 0256	Appeal for de-escalation of military engagement
+32222101 026	Appeal to others to meet or negotiate
+33222101 027	Appeal to others to settle dispute
+32232101 028	Appeal to others to engage in or accept mediation
+22222101 03	EXPRESS INTENT TO COOPERATE
+22222101 030	Express intent to cooperate, not specified below
+22222101 031	Express intent to engage in material cooperation,  not specified below
+22412101 0311	Express intent to cooperate economically
+24222101 0312	Express intent to cooperate militarily
+21142101 0313	Express intent to cooperate on judicial matters
+23124101 0314	Express intent to cooperate on intelligence
+42223101 032	Express intent to provide diplomatic cooperation such as policy support
+22222101 033	Express intent to provide matyerial aid, not specified below
+22422101 0331	Express intent to provide economic aid
+24222101 0332	Express intent to provide military aid
+21422101 0333	Express intent to provide humanitarian aid
+24222101 0334	Express intent to provide military protection or peacekeeping
+42222101 034	Express intent to institute political reform, not specified below
+42222101 0341	Express intent to change leadership
+42222101 0342	Express intent to change policy
+42232101 0343	Express intent to provide rights
+43222101 0344	Express intent to change institutions, regime
+33212101 035	Express intent to yield, not specified below
+32322101 0351	Express intent to ease administrative sanctions
+42242101 0352	Express intent to ease popular dissent
+32142101 0353	Express intent to release persons or property
+32422101 0354	Express intent to ease economic sanctions, boycott, or embargo
+42222101 0355	Express intent allow international involvement (not mediation)
+34222101 0356	Express intent to de-escalate military engagement 
+32122101 036	Express intent to meet or negotiate
+32122101 037	Express intent to settle dispute
+32122101 038	Express intent to accept mediation
+32122101 039	Express intent to mediate
+21122101 04	CONSULT
+21122101 040	Consult, not specified below
+21122101 041	Discuss by telephone
+21122121 042	Make a visit
+21122121 043	Host a visit
+21122121 044	Meet at a ÒhirdÓlocation
+21122101 045	Mediate
+22222101 046	Engage in negotiation
+41122101 05	ENGAGE IN DIPLOMATIC COOPERATION
+41122101 050	Engage in diplomatic cooperation, not specified below
+41122101 051	Praise or endorse
+41122101 052	Defend verbally
+41122101 053	Rally support on behalf of
+41122101 054	Grant diplomatic recognition
+41122101 055	Apologize
+41122101 056	Forgive
+41122101 057	Sign formal agreement
+22222101 06	ENGAGE IN MATERIAL COOPERATION
+22222101 060	Engage in material cooperation, not specified below
+22422101 061	Cooperate economically
+24222101 062	Cooperate militarily
+22232101 063	Engage in judicial cooperation
+22224101 064	Share intelligence or information
+22222101 07	PROVIDE AID
+22222101 070	Provide aid, not specified below
+22422101 071	Provide economic aid
+24222101 072	Provide military aid
+22242101 073	Provide humanitarian aid
+24222101 074	Provide military protection or peacekeeping
+41222101 075	Grant asylum
+22222101 08	YIELD
+22222101 080	Yield, not specified below 
+32222101 081	Ease administrative sanctions, not specified below
+42232101 0811	Ease restrictions on political freedoms
+42232101 0812	Ease ban on political parties or politicians
+22232104 0813	Ease curfew
+23222101 0814	Ease state of emergency or martial law
+42232101 082	Ease political dissent 
+42222101 083	Accede to requests or demands for political reform not specified below
+42222101 0831	Accede to demands for change in leadership
+42222101 0832	Accede to demands for change in policy
+42242101 0833	Accede to demands for rights
+42232101 0834	Accede to demands for change in institutions, regime
+22222101 084	Return, release, not specified below
+22222101 0841	Return, release person(s)
+22222101 0842	Return, release property
+22422101 085	Ease economic sanctions, boycott, embargo
+22222101 086	Allow international involvement not specified below
+23222101 0861	Receive deployment of peacekeepers
+22222101 0862	Receive inspectors
+22432101 0863	Allow delivery of humanitarian aid
+24222101 087	De-escalate military engagement
+24222101 0871	Declare truce, ceasefire
+24222101 0872	Ease military blockade
+24222101 0873	Demobilize armed forces
+24222101 0874	Retreat or surrender militarily
+21134101 09	INVESTIGATE
+21134101 090	Investigate, not specified below
+21134101 091	Investigate crime, corruption
+21134101 092	Investigate human rights abuses
+24134101 093	Investigate military action
+24134101 094	Investigate war crimes
+22222101 10	DEMAND
+22222101 100	Demand, not specified below
+22224101 101	Demand information, investigation
+22322101 1011	Demand economic cooperation
+24222101 1012	Demand military cooperation
+22232101 1013	Demand judicial cooperation
+22224101 1014	Demand intelligence cooperation
+42222101 102	Demand policy support
+23322101 103	Demand aid, protection, or peacekeeping
+22422101 1031	Demand economic aid
+24222101 1032	Demand military aid
+22332101 1033	Demand humanitarian aid
+24222101 1034	Demand military protection or peacekeeping
+42222101 104	Demand political reform, not specified below
+42222101 1041	Demand change in leadership
+42222101 1042	Demand policy change
+22242101 1043	Demand rights
+42222101 1044	Demand change in institutions, regime
+42222101 105	Demand mediation
+42222101 1051	Demand easing of administrative sanctions
+42222101 1052	Demand easing of political dissent
+22332101 1053	Demand release of persons or property
+22422101 1054	Demand easing of economic sanctions, boycott, or embargo
+22222101 1055	Demand that target allows international involvement (non-mediation)
+24222101 1056	Demand de-escalation of military engagement
+22222121 106    Demand withdrawal
+24222101 107	Demand ceasefire
+42222101 108	Demand meeting, negotiation
+21012001 11	DISAPPROVE
+21012001 110	Disapprove, not specified below
+21012001 111	Criticize or denounce 
+21012001 112	Accuse, not specified below
+21032001 1121	Accuse of crime, corruption
+21032001 1122	Accuse of human rights abuses
+23012001 1123	Accuse of aggression
+24012001 1124	Accuse of war crimes
+33032001 1125	Accuse of espionage, treason
+31032001 113	Rally opposition against
+41022001 114	Complain officially 
+10032001 115	Bring lawsuit against 
+10032001 116	Find guilty or liable (legally)
+21112001 12	REJECT
+21112001 120	Reject, not specified below
+21112001 121	Reject material cooperation
+21412001 1211	Reject economic cooperation
+24112001 1212	Reject military cooperation
+32112101 122	Reject request or demand for material aid, not specified below
+32412101 1221	Reject request for economic aid
+34112101 1222	Reject request for military aid
+32142101 1223	Reject request for humanitarian aid
+34112101 1224	Reject request for military protection or peacekeeping
+41132101 123	Reject request or demand for political reform, not specified below
+41132101 1231	Reject request for change in leadership
+41132101 1232	Reject request for policy change
+31142101 1233	Reject request for rights
+32142101 1234	Reject request for change in institutions, regime
+32222101 124	Refuse to yield, not specified below
+32222101 1241	Refuse to ease administrative sanctions
+32242101 1242	Refuse to ease popular dissent
+32242101 1243	Refuse to release persons or property
+32422101 1244	Refuse to ease economic sanctions, boycott, or embargo
+32222101 1245	Refuse to allow international involvement (non mediation)
+34222101 1246	Refuse to de-escalate military engagement
+31121101 125	Reject proposal to meet, discuss, or negotiate
+31121101 126	Reject mediation
+31121101 127	Reject plan, agreement to settle dispute
+21131101 128	Defy norms, law
+41121101 129	Veto
+22222101 13	THREATEN
+22222101 130	Threaten, not specified below
+21222101 131	Threaten non-force, not specified below
+22422101 1311	Threaten to reduce or stop aid
+32422101 1312	Threaten to boycott, embargo, or sanction
+42222101 1313	Threaten to reduce or break relations
+32222101 132	Threaten with administrative sanctions, not specified below
+42232101 1321	Threaten to impose restrictions on political freedoms 
+42232101 1322	Threaten to ban political parties or politicians
+22232124 1323	Threaten to impose curfew
+23232112 1324	Threaten to impose state of emergency or martial law
+42232101 133	Threaten political dissent, protest
+32222101 134	Threaten to halt negotiations
+32222101 135	Threaten to halt mediation
+32222101 136	Threaten to halt international involvement (non-mediation)
+33222101 137	Threaten with violent repression
+24222101 138	Threaten to use military force, not specified below
+34222101 1381	Threaten blockade
+34222141 1382	Threaten occupation 
+24242111 1383	Threaten unconventional violence 
+24222111 1384	Threaten conventional attack  
+24222111 1385	Threaten attack with WMD
+23222101 139	Give ultimatum
+22233211 14	PROTEST
+42233211 140	Engage in political dissent, not specified below
+32243211 141	Demonstrate or rally
+32243211 1411	Demonstrate for leadership change
+32243211 1412	Demonstrate for policy change
+32243211 1413	Demonstrate for rights
+32243211 1414	Demonstrate for change in institutions, regime
+32243211 142	Conduct hunger strike, not specified below
+42243211 1421	Conduct hunger strike for leadership change
+32243211 1422	Conduct hunger strike for policy change
+32243211 1423	Conduct hunger strike for rights
+42243211 1424	Conduct hunger strike for change in institutions, regime 
+32343211 143	Conduct strike or boycott, not specified below
+42343211 1431	Conduct strike or boycott for leadership change  
+32343211 1432	Conduct strike or boycott for policy change
+32343211 1433	Conduct strike or boycott for rights
+42343211 1434	Conduct strike or boycott for change in institutions, regime
+32343241 144	Obstruct passage, block
+42343241 1441	Obstruct passage to demand leadership change 
+32343241 1442	Obstruct passage to demand policy change
+32343241 1443	Obstruct passage to demand rights
+32343241 1444	Obstruct passage to demand change in institutions, regime
+32343241 145	Protest violently, riot
+42343241 1451	Engage in violent protest for leadership change  
+32343241 1452	Engage in violent protest for policy change
+32343241 1453	Engage in violent protest for rights
+42343241 1454	Engage in violent protest for  change in institutions, regime
+24222231 15	EXHIBIT FORCE POSTURE
+24222231 150	Demonstrate military or police power, not specified below
+24222233 151	Increase police alert status
+24222233 152	Increase military alert status
+24222231 153	Mobilize or increase police power
+24222231 154	Mobilize or increase armed forces 
+32222101 16	REDUCE RELATIONS
+32222101 160	Reduce relations, not specified below
+42222101 161	Reduce or break diplomatic relations
+32422101 162	Reduce or stop aid, not specified below
+32422101 1621	Reduce or stop economic assistance
+34222101 1622	Reduce or stop military assistance
+32242101 1623	Reduce or stop humanitarian assistance
+32422101 163	Impose embargo, boycott, or sanctions
+32222101 164	Halt negotiations
+32222101 165	Halt mediation
+32222101 166	Expel or withdraw, not specified below
+34222101 1661	Expel or withdraw peacekeepers
+32222101 1662	Expel or withdraw inspectors, observers
+32422101 1663	Expel or withdraw aid agencies
+22222201 17	COERCE
+22222201 170	Coerce, not specified below 
+22222201 171	Seize or damage property, not specified below
+22222201 1711	Confiscate property
+22222201 1712	Destroy property
+32222201 172	Impose administrative sanctions, not specified below
+42222201 1721	Impose restrictions on political freedoms  
+42222201 1722	Ban political parties or politicians
+22222244 1723	Impose curfew
+24222241 1724	Impose state of emergency or martial law
+23242201 173	Arrest, detain, or charge with legal action 
+22232221 174	Expel or deport individuals
+33222201 175	Use tactics of violent repression  
+22231101 18	ASSAULT
+22231101 180	Use unconventional violence, not specified below
+22231101 181	Abduct, hijack, or take hostage 
+22231101 182	Physically assault, not specified below
+22231101 1821	Sexually assault
+22231101 1822	Torture
+22231101 1823	Kill by physical assault
+22231101 183	Conduct suicide, car, or other non-military bombing, not spec below
+22231101 1831	Carry out suicide bombing
+22231101 1832	Carry out car bombing
+22231101 1833	Carry out roadside bombing 
+22231101 184	Use as human shield 
+32231101 185	Attempt to assassinate
+32231101 186	Assassinate 
+24221121 19	FIGHT
+24221121 190	Use conventional military force, not specified below
+24321121 191	Impose blockade, restrict movement 
+24221141 192	Occupy territory
+24221121 193	Fight with small arms and light weapons
+24221121 194	Fight with artillery and tanks
+24221121 195	Employ aerial weapons
+34221121 196	Violate ceasefire 
+24241121 20	USE UNCONVENTIONAL MASS VIOLENCE
+24241121 200	Use unconventional mass violence, not specified below
+24241131 201	Engage in mass expulsion
+24241131 202	Engage in mass killings
+24241121 203	Engage in ethnic cleansing
+24241121 204	Use weapons of mass destruction, not specified below
+24241121 2041	Use chemical, biological, or radiologicalweapons
+24341431 2042	Detonate nuclear weapons
