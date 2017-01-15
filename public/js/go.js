@@ -624,14 +624,11 @@ function ethnicityChart(ethnicities) {
     for (i = 3; i < ethnicities.length; i++) {
         otherEths.count += ethnicities[i].count;
     }
-
-    console.log("Total Ethnicities " + ethnicities.length);
-    console.log("Top Three Ethnicities: " + JSON.stringify(topEths));
-    console.log("Other Ethnicities: " + otherEths.count);
+    topEths.push(otherEths);
 
     $("#ethsTable").html("");
 
-    tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Ethnicities</strong></td></tr>";
+    tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Different Ethnicities</strong></td></tr>";
     tableHtml += "<tr><td><table id='ethDetails'>";
 
 
@@ -651,13 +648,7 @@ function ethnicityChart(ethnicities) {
 
     };   
 
-    tableHtml += "<tr>";
-    tableHtml += "<td><div class='colorbox' style='background-color: "
-    tableHtml +=  getColorForCode(null, 3) + "'></div></td>";
-    tableHtml += "<td class='ethcol1'> other</td>";
-    tableHtml += "<td>" + otherEths.count + "</td>";
     tableHtml += "</tr></table>";
-    //$("#ethsTable tr:last").after(lastRow);
 
     tableHtml += "</td><td><div id='ethPie'> </div></td></tr></table>";
     $("#ethsTable").append(tableHtml);
@@ -665,15 +656,13 @@ function ethnicityChart(ethnicities) {
     makeEthPie(topEths, otherEths);
 }
 
-function makeEthPie(top, other) {
+function makeEthPie(top) {
 
 
     var data = [];
     top.forEach(function(e) {
         data.push(e.count);
     });
-    data.push(other.count);
-
 
     var width = 90,
         height = 90,
@@ -698,17 +687,30 @@ function makeEthPie(top, other) {
     var svg = d3.select("#ethPie").append("svg")
         .attr("width", width)
         .attr("height", height)
-      .append("g")
+        .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-      var g = svg.selectAll(".arc")
-          .data(pie(data))
+    var g = svg.selectAll(".arc")
+        .data(pie(data))
         .enter().append("g")
-          .attr("class", "arc");
+        .attr("class", "arc")
+        .on("mouseover", function (d) {
+            d3.select("#tooltip")
+            .style("left", d3.event.pageX + "px")
+            .style("top", d3.event.pageY + "px")
+            .style("opacity", 1)
+            .select("#value")
+            .text(top[d.index].name);   
+        })
+        .on("mouseout", function () {
+            d3.select("#tooltip")
+                .style("opacity", 0);
 
-      g.append("path")
-          .attr("d", arc)
-          .style("fill", function(d) { return color(d.index); });
+        });
+
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return color(d.index); });
 
 }
 
