@@ -303,7 +303,9 @@ function makeDot(point) {
         eth1: point.eth1,
         eth2: point.eth2,
         rel1: point.rel1,
-        rel2: point.rel2
+        rel2: point.rel2,
+        rol1: point.rol1,
+        rol2: point.rol2
     }).addTo(mapGlobal);
 
 
@@ -575,6 +577,31 @@ function updateReligions (religions, religion) {
     return religions;
 }
 
+
+
+function updateRoles (roles, role) {
+
+    if (!role)
+        return roles;
+
+    var found = false;
+    roles.forEach(function (rol) {
+        if (rol.name == role) {
+            rol.count++;
+            found = true;
+        }    
+    });
+    if (!found) {
+      var rol = {};
+      rol.name = role;
+      rol.count = 1;
+      roles.push(rol);
+    }
+
+    return roles;
+}
+
+
 function updateBarChart() {
 
     var numVisibleCircles = 0;
@@ -587,6 +614,7 @@ function updateBarChart() {
 
     var ethnicities = [];
     var religions = [];
+    var roles = [];
 
     for (var i=0; i < circlesArr.length; ++i) {
 
@@ -611,6 +639,9 @@ function updateBarChart() {
             religions = updateReligions(religions, c.options.rel1);
             religions = updateReligions(religions, c.options.rel2);
 
+            roles = updateRoles(roles, c.options.rol1);
+            roles = updateRoles(roles, c.options.rol2);
+
         }
 
     }
@@ -628,66 +659,14 @@ function updateBarChart() {
 
     phist.ethnicities = ethnicities;
     phist.religions = religions;
+    phist.roles = roles;
 
     barChart(phist);
 
 }
 
 
-function religionChart(religions) {
 
-    religions.sort(function(a, b) {
-        return b.count - a.count;
-    });
-
-    // Top three religions plus other
-    var topRels = [];
-    var len = religions.length > 2 ? 3 : religions.length;
-    for (i = 0; i < len; i++) {
-        topRels.push(religions[i]);
-    }
-
-    var otherRels = {};
-    otherRels.name = "other";
-    otherRels.count = 0;
-    for (i = 3; i < religions.length; i++) {
-        otherRels.count += religions[i].count;
-    }
-
-    if (religions.length > 4)
-        topRels.push(otherRels);
-    else if (religions.length == 4)
-        topRels.push(religions[3]);
-
-    $("#relsTable").html("");
-
-    var tableHtml = "<tr><td colspan='2'><strong>" + religions.length + " Different Religions</strong></td></tr>";
-    tableHtml += "<tr><td><table id='relDetails'>";
-
-    for(i = 0; i < topRels.length; i++) {
-
-        rel = topRels[i];
-        var color = getColorForCode("rel", i);
-
-        tableHtml += "<tr>";
-        tableHtml += "<td>";
-        tableHtml += "<div class='colorbox' style='background-color:" + color + "'></div>"
-        tableHtml += "</td>";
-        tableHtml += "<td class='ethcol1'>" + rel.name + "</td>";
-        tableHtml += "<td>" + rel.count + "</td>";
-        tableHtml += "</tr>";
-
-    };  
-
-    tableHtml += "</tr></table>";
-
-    tableHtml += "</td><td><div id='relPie'> </div></td></tr></table>";
-    $("#relsTable").append(tableHtml);
-
-    makePie(topRels, "#relPie");
-}
-
-// TODO Combine with makeEthPie and pass in the div id
 function makePie(top, element) {
 
 
@@ -704,8 +683,10 @@ function makePie(top, element) {
 
         if (element == "#relPie")
             return getColorForCode("rel", index);
-        else
+        else if (element == "#ethPie")
             return getColorForCode("eth", index);
+        else
+            return getColorForCode("rol", index);
     }
 
     var arc = d3.arc()
@@ -751,107 +732,196 @@ function makePie(top, element) {
 }
 
 
+function roleChart(roles, chartType) {
 
-function ethnicityChart(ethnicities) {
+    var table = "#rolsTable";
+    var colorcode = "rol";
+    var detailsTable1 = "#rolDetails";
+    var detailsTable2 = "#rolDetails2";
+    var pie = "#rolPie";
+    var pieId = "rolPie";
+    var label = "Roles";
 
-    ethnicities.sort(function(a, b) {
+    switch (chartType) {
+        case "rel":
+            table = "#relsTable";
+            colorcode = "rel";
+            detailsTable1 = "#relDetails";
+            detailsTable2 = "#relDetails2";
+            pie = "#relPie";
+            pieId = "relPie";
+            label = "Religions";
+        break;
+        case "eth":
+            table = "#ethsTable";
+            colorcode = "eth";
+            detailsTable1 = "#ethDetails";
+            detailsTable2 = "#ethDetails2";
+            pie = "#ethPie";
+            pieId = "ethPie";
+            label = "Ethnicities";
+        break;
+        default:
+
+    }
+
+
+    roles.sort(function(a, b) {
         return b.count - a.count;
     });
-    
-    // Top three ethnicities plus other
-    var topEths = [];
-    var len = ethnicities.length > 2 ? 3 : ethnicities.length;
+
+    // Top 7 roles plus other
+    var topRols = [];
+    var len = roles.length > 6 ? 7 : roles.length;
     for (i = 0; i < len; i++) {
-        topEths.push(ethnicities[i]);
+        topRols.push(roles[i]);
     }
 
-    var otherEths = {};
-    otherEths.name = "other";  // more than one ethnicity was combined
-    otherEths.count = 0;
-    for (i = 3; i < ethnicities.length; i++) {
-        otherEths.count += ethnicities[i].count;
+    var otherRols = {};
+    otherRols.name = "other";
+    otherRols.count = 0;
+    for (i = 7; i < roles.length; i++) {
+        otherRols.count += roles[i].count;
     }
-    
-    if (ethnicities.length > 4)
-        topEths.push(otherEths);
-    else if (ethnicities.length == 4)
-        topEths.push(ethnicities[3]);
 
-    $("#ethsTable").html("");
+    if (roles.length > 8)
+        topRols.push(otherRols);
+    else if (roles.length == 8)
+        topRols.push(roles[7]);
 
-    var tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Different Ethnicities</strong></td></tr>";
-    tableHtml += "<tr><td><table id='ethDetails'>";
+    $(table).html("");
 
+    var tableHtml = "<tr><td colspan='3'><strong>" + roles.length + " Different " + label + "</strong></td></tr>";
 
-    for(i = 0; i < topEths.length; i++) {
+    tableHtml += "<tr>";
+    tableHtml += "  <td>";
+    tableHtml += "    <table id='" + detailsTable1 + "'>";
 
-        eth = topEths[i];
+    var firstset = topRols.length > 3 ? 4 : topRols.length;
 
-        var color = getColorForCode("eth", i);
+    for(i = 0; i < firstset; i++) {
 
-        tableHtml += "<tr>";
-        tableHtml += "<td>";
-        tableHtml += "<div class='colorbox' style='background-color:" + color + "'></div>"
-        tableHtml += "</td>";
-        tableHtml += "<td class='ethcol1'>" + eth.name + "</td>";
-        tableHtml += "<td>" + eth.count + "</td>";
-        tableHtml += "</tr>";
+        rol = topRols[i];
+        var color = getColorForCode(colorcode, i);
 
-    };   
+        tableHtml += "    <tr>";
+        tableHtml += "      <td>";
+        tableHtml += "          <div class='colorbox' style='background-color:" + color + "'></div>"
+        tableHtml += "      </td>";
+        tableHtml += "      <td class='ethcol1'>" + rol.name + "</td>";
+        tableHtml += "      <td>" + rol.count + "</td>";
+        tableHtml += "    </tr>";
 
-    tableHtml += "</tr></table>";
+    };  
 
-    tableHtml += "</td><td><div id='ethPie'> </div></td></tr></table>";
-    $("#ethsTable").append(tableHtml);
+    tableHtml += "    </table>";
+    tableHtml += "  </td>";
 
-    makePie(topEths, "#ethPie");
+    if (topRols.length > 4) {
+        // Second set of up to 4
+        tableHtml += "  <td>";
+        tableHtml += "      <table id='" + detailsTable2 +"'>";
+
+        //for(i = 0; i < topRols.length; i++) {
+        for(i = 4; i < topRols.length; i++) {
+
+            rol = topRols[i];
+            var color = getColorForCode(colorcode, i);
+
+            tableHtml += "      <tr>";
+            tableHtml += "          <td>";
+            tableHtml += "              <div class='colorbox' style='background-color:" + color + "'></div>"
+            tableHtml += "          </td>";
+            tableHtml += "          <td class='ethcol1'>" + rol.name + "</td>";
+            tableHtml += "          <td>" + rol.count + "</td>";
+            tableHtml += "      </tr>";
+
+        };  
+
+        tableHtml += "      </table>";
+        tableHtml += "  </td>";      
+    } else {
+        tableHtml += "<td> </td>";
+    }
+
+    // Pie Chart Column
+    tableHtml += "  <td>";
+    tableHtml += "      <div id='" + pieId + "'> </div>";
+    tableHtml += "  </td>";
+    tableHtml += "</tr>";
+
+    $(table).append(tableHtml);
+
+    makePie(topRols, pie);
 }
 
 
+
+
 function getColorForCode(code, pos) {
-
-/*
-    lccode = code.toLowerCase();
-    var red = lccode.charCodeAt(0) - 97;
-    red = Math.floor(red / 26.0 * 255.0);
-
-    var green = lccode.charCodeAt(1) - 97;
-    green = Math.floor(green / 26.0 * 255.0);
-
-    var blue = lccode.charCodeAt(2) - 97;
-    blue = Math.floor(blue / 26.0 * 255.0);
-
-    var color = "rgb(" + red + "," + green + "," + blue + ")";
-*/
 
     switch(code) {
 
         case "eth":
             if (pos == 0)
-                color = "#A0BED2";
+                color = "#9ba8ac";
             else if (pos == 1)
-                color = "#A5D2A0";
+                color = "#638a95";
             else if (pos == 2)
-                color = "#D2B4A0";
-            else
-                color = "lightgrey";
+                color = "#386e7e";
+            else if (pos == 3)
+                color = "#387e66";
+            else if (pos == 4)
+                color = "#36ad5a";
+            else if (pos == 5)
+                color = "#6dc1a4";
+            else if (pos == 6)
+                color = "#afab46";
+            else 
+                color = "#eee96c"
         break;
 
         case "rel":
             if (pos == 0)
-                color = "#A18BCB";
+                color = "#bbf29c";
             else if (pos == 1)
-                color = "#CB8B95";
+                color = "#81c660";
             else if (pos == 2)
-                color = "#CBC18B";
-            else
-                color = "lightgrey";
+                color = "#83e851";
+            else if (pos == 3)
+                color = "#67844b";
+            else if (pos == 4)
+                color = "#aaa24d";
+            else if (pos == 5)
+                color = "#d3bc3e";
+            else if (pos == 6)
+                color = "#f2da54";
+            else 
+                color = "#f3e544";
         break;
 
+        case "rol":
+            if (pos == 0)
+                color = "#deb7f5";
+            else if (pos == 1)
+                color = "#c982f2";
+            else if (pos == 2)
+                color = "#a453d5";
+            else if (pos == 3)
+                color = "#9f495b";
+            else if (pos == 4)
+                color = "#a97882";
+            else if (pos == 5)
+                color = "#b73e80";
+            else if (pos == 6)
+                color = "#f57c93";        
+            else
+                color = "#f8afbd";
+        break;
 
+        default:
+            color = "black";
     }
-
- 
 
     return color;
 }
@@ -859,8 +929,11 @@ function getColorForCode(code, pos) {
 
 function barChart(jsondata) {
 
-    ethnicityChart(jsondata["ethnicities"]);
-    religionChart(jsondata["religions"]);
+    //ethnicityChart(jsondata["ethnicities"]);
+    //religionChart(jsondata["religions"]);
+    roleChart(jsondata["ethnicities"], "eth");
+    roleChart(jsondata["religions"], "rel");   
+    roleChart(jsondata["roles"], "rol");
 
     $("#d3chart").html("");
 

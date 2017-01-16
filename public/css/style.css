@@ -658,27 +658,30 @@ tr .descriptioncode {
   
 /* ------------------ Ethnicities ---------------------- */
 .inlineTable {
-            display: inline-block;
+  display: inline-block;
 }
 
-#ethDetails {
+#ethDetails,
+#relDetails,
+#rolDetails {
   width: 80px;
 }
 
-#ethsTable td {
+#rolDetails2 {
+  margin-left:10px;
+}
+
+#ethsTable td,
+#relsTable td,
+#rolsTable td
+ {
   text-align: center;
+  vertical-align: top;
 }
 
-#relDetails {
-  width: 80px;
-}
-
-#relsTable {
+#relsTable,
+#rolsTable {
   margin-left: 15px;
-}
-
-#relsTable td {
-  text-align: center;
 }
 
 
