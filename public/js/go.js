@@ -301,7 +301,9 @@ function makeDot(point) {
         sourcefile: point.sourcefile,
         goldstein: point.goldstein,
         eth1: point.eth1,
-        eth2: point.eth2
+        eth2: point.eth2,
+        rel1: point.rel1,
+        rel2: point.rel2
     }).addTo(mapGlobal);
 
 
@@ -550,6 +552,29 @@ function updateEthnicities (ethnicities, ethnicity) {
 }
 
 
+
+function updateReligions (religions, religion) {
+
+    if (!religion)
+        return religions;
+
+    var found = false;
+    religions.forEach(function (rel) {
+        if (rel.name == religion) {
+            rel.count++;
+            found = true;
+        }    
+    });
+    if (!found) {
+      var rel = {};
+      rel.name = religion;
+      rel.count = 1;
+      religions.push(rel);
+    }
+
+    return religions;
+}
+
 function updateBarChart() {
 
     var numVisibleCircles = 0;
@@ -561,6 +586,7 @@ function updateBarChart() {
                   ifr: 0.0, phy: 0.0, tim: 0.0 };
 
     var ethnicities = [];
+    var religions = [];
 
     for (var i=0; i < circlesArr.length; ++i) {
 
@@ -582,6 +608,9 @@ function updateBarChart() {
             ethnicities = updateEthnicities(ethnicities, c.options.eth1);
             ethnicities = updateEthnicities(ethnicities, c.options.eth2);
 
+            religions = updateReligions(religions, c.options.rel1);
+            religions = updateReligions(religions, c.options.rel2);
+
         }
 
     }
@@ -598,10 +627,125 @@ function updateBarChart() {
     }
 
     phist.ethnicities = ethnicities;
+    phist.religions = religions;
 
     barChart(phist);
 
 }
+
+
+function religionChart(religions) {
+
+    religions.sort(function(a, b) {
+        return b.count - a.count;
+    });
+
+    // Top three religions plus other
+    var topRels = [];
+    var len = religions.length > 2 ? 3 : religions.length;
+    for (i = 0; i < len; i++) {
+        topRels.push(religions[i]);
+    }
+
+    var otherRels = {};
+    otherRels.name = "other";
+    otherRels.count = 0;
+    for (i = 3; i < religions.length; i++) {
+        otherRels.count += religions[i].count;
+    }
+
+    if (religions.length > 4)
+        topRels.push(otherRels);
+    else if (religions.length == 4)
+        topRels.push(religions[3]);
+
+    $("#relsTable").html("");
+
+    var tableHtml = "<tr><td colspan='2'><strong>" + religions.length + " Different Religions</strong></td></tr>";
+    tableHtml += "<tr><td><table id='relDetails'>";
+
+    for(i = 0; i < topRels.length; i++) {
+
+        rel = topRels[i];
+        var color = getColorForCode(rel.name, i);
+
+        tableHtml += "<tr>";
+        tableHtml += "<td>";
+        tableHtml += "<div class='colorbox' style='background-color:" + color + "'></div>"
+        tableHtml += "</td>";
+        tableHtml += "<td class='ethcol1'>" + rel.name + "</td>";
+        tableHtml += "<td>" + rel.count + "</td>";
+        tableHtml += "</tr>";
+
+    };  
+
+    tableHtml += "</tr></table>";
+
+    tableHtml += "</td><td><div id='relPie'> </div></td></tr></table>";
+    $("#relsTable").append(tableHtml);
+
+    makeRelPie(topRels);
+}
+
+// TODO Combine with makeEthPie and pass in the div id
+function makeRelPie(top) {
+
+
+    var data = [];
+    top.forEach(function(e) {
+        data.push(e.count);
+    });
+
+    var width = 90,
+        height = 90,
+        radius = Math.min(width, height) / 2;
+
+    var color = function(index) {
+        return getColorForCode(null, index);
+    }
+
+    var arc = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+    var labelArc = d3.arc()
+        .outerRadius(radius - 40)
+        .innerRadius(radius - 40);
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function(d) { return d; });
+
+    var svg = d3.select("#relPie").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var g = svg.selectAll(".arc")
+        .data(pie(data))
+        .enter().append("g")
+        .attr("class", "arc")
+        .on("mouseover", function (d) {
+            d3.select("#tooltip")
+            .style("left", d3.event.pageX + "px")
+            .style("top", d3.event.pageY + "px")
+            .style("opacity", 1)
+            .select("#value")
+            .text(top[d.index].name);   
+        })
+        .on("mouseout", function () {
+            d3.select("#tooltip")
+                .style("opacity", 0);
+
+        });
+
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return color(d.index); });
+
+}
+
 
 
 function ethnicityChart(ethnicities) {
@@ -609,9 +753,8 @@ function ethnicityChart(ethnicities) {
     ethnicities.sort(function(a, b) {
         return b.count - a.count;
     });
-    //console.log(JSON.stringify(ethnicities));
     
-    // Top three ethinicities plus other
+    // Top three ethnicities plus other
     var topEths = [];
     var len = ethnicities.length > 2 ? 3 : ethnicities.length;
     for (i = 0; i < len; i++) {
@@ -619,16 +762,20 @@ function ethnicityChart(ethnicities) {
     }
 
     var otherEths = {};
-    otherEths.name = "other";
+    otherEths.name = "other";  // more than one ethnicity was combined
     otherEths.count = 0;
     for (i = 3; i < ethnicities.length; i++) {
         otherEths.count += ethnicities[i].count;
     }
-    topEths.push(otherEths);
+    
+    if (ethnicities.length > 4)
+        topEths.push(otherEths);
+    else if (ethnicities.length == 4)
+        topEths.push(ethnicities[3]);
 
     $("#ethsTable").html("");
 
-    tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Different Ethnicities</strong></td></tr>";
+    var tableHtml = "<tr><td colspan='2'><strong>" + ethnicities.length + " Different Ethnicities</strong></td></tr>";
     tableHtml += "<tr><td><table id='ethDetails'>";
 
 
@@ -653,7 +800,7 @@ function ethnicityChart(ethnicities) {
     tableHtml += "</td><td><div id='ethPie'> </div></td></tr></table>";
     $("#ethsTable").append(tableHtml);
 
-    makeEthPie(topEths, otherEths);
+    makeEthPie(topEths);
 }
 
 function makeEthPie(top) {
@@ -730,11 +877,11 @@ function getColorForCode(code, pos) {
     var color = "rgb(" + red + "," + green + "," + blue + ")";
 */
     if (pos == 0)
-        color = "steelblue";
+        color = "#A0BED2";
     else if (pos == 1)
-        color = "darkseagreen";
+        color = "#A5D2A0";
     else if (pos == 2)
-        color = "powderblue";
+        color = "#D2B4A0";
     else
         color = "lightgrey";
 
@@ -745,6 +892,7 @@ function getColorForCode(code, pos) {
 function barChart(jsondata) {
 
     ethnicityChart(jsondata["ethnicities"]);
+    religionChart(jsondata["religions"]);
 
     $("#d3chart").html("");
 

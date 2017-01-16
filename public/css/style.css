@@ -669,6 +669,20 @@ tr .descriptioncode {
   text-align: center;
 }
 
+#relsTable {
+  width: 150px;
+  display: inline-block;
+}
+
+#relDetails {
+  width: 80px;
+}
+
+#relsTable td {
+  text-align: center;
+}
+
+
 .colorbox {
     width: 10px;
     height: 10px;
