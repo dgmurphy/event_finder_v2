@@ -657,8 +657,8 @@ tr .descriptioncode {
 }
   
 /* ------------------ Ethnicities ---------------------- */
-#ethsTable {
-  width: 150px;
+.inlineTable {
+            display: inline-block;
 }
 
 #ethDetails {
@@ -669,13 +669,12 @@ tr .descriptioncode {
   text-align: center;
 }
 
-#relsTable {
-  width: 150px;
-  display: inline-block;
-}
-
 #relDetails {
   width: 80px;
+}
+
+#relsTable {
+  margin-left: 15px;
 }
 
 #relsTable td {

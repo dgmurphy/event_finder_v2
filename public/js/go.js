@@ -667,7 +667,7 @@ function religionChart(religions) {
     for(i = 0; i < topRels.length; i++) {
 
         rel = topRels[i];
-        var color = getColorForCode(rel.name, i);
+        var color = getColorForCode("rel", i);
 
         tableHtml += "<tr>";
         tableHtml += "<td>";
@@ -701,7 +701,7 @@ function makeRelPie(top) {
         radius = Math.min(width, height) / 2;
 
     var color = function(index) {
-        return getColorForCode(null, index);
+        return getColorForCode("rel", index);
     }
 
     var arc = d3.arc()
@@ -783,7 +783,7 @@ function ethnicityChart(ethnicities) {
 
         eth = topEths[i];
 
-        var color = getColorForCode(eth.name, i);
+        var color = getColorForCode("eth", i);
 
         tableHtml += "<tr>";
         tableHtml += "<td>";
@@ -816,7 +816,7 @@ function makeEthPie(top) {
         radius = Math.min(width, height) / 2;
 
     var color = function(index) {
-        return getColorForCode(null, index);
+        return getColorForCode("eth", index);
     }
 
     var arc = d3.arc()
@@ -876,14 +876,35 @@ function getColorForCode(code, pos) {
 
     var color = "rgb(" + red + "," + green + "," + blue + ")";
 */
-    if (pos == 0)
-        color = "#A0BED2";
-    else if (pos == 1)
-        color = "#A5D2A0";
-    else if (pos == 2)
-        color = "#D2B4A0";
-    else
-        color = "lightgrey";
+
+    switch(code) {
+
+        case "eth":
+            if (pos == 0)
+                color = "#A0BED2";
+            else if (pos == 1)
+                color = "#A5D2A0";
+            else if (pos == 2)
+                color = "#D2B4A0";
+            else
+                color = "lightgrey";
+        break;
+
+        case "rel":
+            if (pos == 0)
+                color = "#A18BCB";
+            else if (pos == 1)
+                color = "#CB8B95";
+            else if (pos == 2)
+                color = "#CBC18B";
+            else
+                color = "lightgrey";
+        break;
+
+
+    }
+
+ 
 
     return color;
 }
