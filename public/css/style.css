@@ -656,7 +656,12 @@ tr .descriptioncode {
   display: inline;
 }
   
-/* ------------------ Ethnicities ---------------------- */
+/* ------------------ Pie Charts ---------------------- */
+.pies {
+  width: 750px;
+  margin: 0 auto 0 auto;
+}
+
 .inlineTable {
   display: inline-block;
 }
@@ -681,7 +686,7 @@ tr .descriptioncode {
 
 #relsTable,
 #rolsTable {
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 
