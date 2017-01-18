@@ -908,9 +908,9 @@ function getColorForCode(code, pos) {
             else if (pos == 2)
                 color = "#a453d5";
             else if (pos == 3)
-                color = "#9f495b";
+                color = "#bf00ff";
             else if (pos == 4)
-                color = "#a97882";
+                color = "#bf4040";
             else if (pos == 5)
                 color = "#b73e80";
             else if (pos == 6)
